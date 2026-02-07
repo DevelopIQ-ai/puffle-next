@@ -1,18 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { signIn, signUp } from "@/lib/auth-client";
+import { useState, useEffect } from "react";
+import { signIn, signUp, useSession } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { data: session } = useSession();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+
+  useEffect(() => {
+    if (session) {
+      router.push("/dashboard");
+    }
+  }, [session, router]);
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
