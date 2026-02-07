@@ -99,7 +99,6 @@ export default function Header() {
             Login
           </a>
           <a
-            href="#"
             className="btn btn-primary"
             href="https://zcal.co/i/BT5kddcb"
             target="_blank"
