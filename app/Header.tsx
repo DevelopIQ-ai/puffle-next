@@ -3,11 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useSession, signOut } from "@/lib/auth-client";
 
 export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const { data: session } = useSession();
   const [showDropdown, setShowDropdown] = useState(false);
 
@@ -151,7 +153,30 @@ export default function Header() {
                   <button
                     onClick={() => {
                       setShowDropdown(false);
-                      signOut();
+                      router.push("/dashboard");
+                    }}
+                    style={{
+                      width: "100%",
+                      padding: "0.5rem 1rem",
+                      background: "none",
+                      border: "none",
+                      color: "var(--text-primary)",
+                      fontFamily: "var(--font-sans)",
+                      fontSize: "0.85rem",
+                      cursor: "pointer",
+                      textAlign: "left",
+                      transition: "background-color 0.1s ease",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#1a1a1a")}
+                    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                  >
+                    Dashboard
+                  </button>
+                  <button
+                    onClick={async () => {
+                      setShowDropdown(false);
+                      await signOut();
+                      router.push("/");
                     }}
                     style={{
                       width: "100%",
@@ -181,14 +206,12 @@ export default function Header() {
               >
                 Login
               </Link>
-              <a
+              <Link
+                href="/login"
                 className="btn btn-primary"
-                href="https://zcal.co/i/BT5kddcb"
-                target="_blank"
-                rel="noopener noreferrer"
               >
                 Get Started
-              </a>
+              </Link>
             </>
           )}
         </div>
