@@ -15,37 +15,5 @@ export default async function DashboardPage() {
     redirect("/request-demo");
   }
 
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#000",
-      }}
-    >
-      <div style={{ textAlign: "center" }}>
-        <h1
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "2rem",
-            fontWeight: 500,
-            color: "var(--text-primary)",
-            marginBottom: "0.5rem",
-          }}
-        >
-          Dashboard
-        </h1>
-        <p
-          style={{
-            color: "var(--text-secondary)",
-            fontSize: "0.95rem",
-          }}
-        >
-          Welcome, {session.user.name}.
-        </p>
-      </div>
-    </div>
-  );
+  redirect("https://app.puffle.ai");
 }
