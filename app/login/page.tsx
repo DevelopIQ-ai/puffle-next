@@ -12,24 +12,20 @@ export default function LoginPage() {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [needsName, setNeedsName] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
 
-  const handleContinue = async (e: React.FormEvent) => {
+  const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
     try {
-      // Try sign in first
-      const { error: signInError } = await signIn.email({ email, password });
-      if (!signInError) {
-        router.push("/dashboard");
+      const { error } = await signIn.email({ email, password });
+      if (error) {
+        setError("Invalid email or password.");
         return;
       }
-
-      // Check if user exists by trying to sign up with a dummy — but that's messy.
-      // Instead: if sign in failed, assume new user and ask for name.
-      setNeedsName(true);
+      router.push("/dashboard");
     } catch {
       setError("Something went wrong");
     } finally {
@@ -37,7 +33,7 @@ export default function LoginPage() {
     }
   };
 
-  const handleNameSubmit = async (e: React.FormEvent) => {
+  const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     if (!name.trim()) {
@@ -49,15 +45,6 @@ export default function LoginPage() {
     try {
       const { error } = await signUp.email({ email, password, name });
       if (error) {
-        // If account already exists, password was just wrong
-        if (
-          error.message?.toLowerCase().includes("already") ||
-          error.message?.toLowerCase().includes("exists")
-        ) {
-          setNeedsName(false);
-          setError("Incorrect password. Please try again.");
-          return;
-        }
         setError(error.message ?? "Sign up failed");
         return;
       }
@@ -84,18 +71,18 @@ export default function LoginPage() {
         </a>
 
         <h1 className="login-heading">
-          {needsName ? "What\u2019s your name?" : "Sign in to Puffle"}
+          {isSignUp ? "Create an account" : "Sign in to Puffle"}
         </h1>
         <p className="login-subtext">
-          {needsName
-            ? "Looks like you\u2019re new here. Tell us your name to get started."
+          {isSignUp
+            ? "Enter your details to get started."
             : "Enter your email and password to continue."}
         </p>
 
         {error && <p className="login-error">{error}</p>}
 
-        {needsName ? (
-          <form onSubmit={handleNameSubmit} className="login-form">
+        <form onSubmit={isSignUp ? handleSignUp : handleSignIn} className="login-form">
+          {isSignUp && (
             <input
               type="text"
               placeholder="Your name"
@@ -105,50 +92,49 @@ export default function LoginPage() {
               className="login-input"
               autoFocus
             />
-            <button type="submit" disabled={loading} className="login-button">
-              {loading ? (
-                <span className="loading-dots">
-                  <span />
-                  <span />
-                  <span />
-                </span>
-              ) : (
-                "Get Started"
-              )}
-            </button>
-          </form>
-        ) : (
-          <form onSubmit={handleContinue} className="login-form">
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="login-input"
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              minLength={8}
-              className="login-input"
-            />
-            <button type="submit" disabled={loading} className="login-button">
-              {loading ? (
-                <span className="loading-dots">
-                  <span />
-                  <span />
-                  <span />
-                </span>
-              ) : (
-                "Continue"
-              )}
-            </button>
-          </form>
-        )}
+          )}
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="login-input"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength={8}
+            className="login-input"
+          />
+          <button type="submit" disabled={loading} className="login-button">
+            {loading ? (
+              <span className="loading-dots">
+                <span />
+                <span />
+                <span />
+              </span>
+            ) : isSignUp ? (
+              "Get Started"
+            ) : (
+              "Sign In"
+            )}
+          </button>
+        </form>
+
+        <p className="login-toggle">
+          {isSignUp ? "Already have an account?" : "Don\u2019t have an account?"}{" "}
+          <button
+            type="button"
+            onClick={() => { setIsSignUp(!isSignUp); setError(""); }}
+            className="login-toggle-btn"
+          >
+            {isSignUp ? "Sign in" : "Sign up"}
+          </button>
+        </p>
       </div>
 
       <style jsx>{`
@@ -253,6 +239,25 @@ export default function LoginPage() {
         .login-button:disabled {
           opacity: 0.6;
           cursor: not-allowed;
+        }
+        .login-toggle {
+          color: var(--text-secondary);
+          font-size: 0.825rem;
+          text-align: center;
+          margin-top: 1.25rem;
+        }
+        .login-toggle-btn {
+          background: none;
+          border: none;
+          color: var(--accent-primary);
+          font-size: 0.825rem;
+          font-family: var(--font-sans);
+          cursor: pointer;
+          padding: 0;
+          text-decoration: none;
+        }
+        .login-toggle-btn:hover {
+          text-decoration: underline;
         }
         .loading-dots {
           display: inline-flex;
