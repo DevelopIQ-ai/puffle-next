@@ -23,7 +23,7 @@ export default function LoginPage() {
       // Try sign in first
       const { error: signInError } = await signIn.email({ email, password });
       if (!signInError) {
-        router.push("/");
+        router.push("/dashboard");
         return;
       }
 
@@ -61,7 +61,7 @@ export default function LoginPage() {
         setError(error.message ?? "Sign up failed");
         return;
       }
-      router.push("/");
+      router.push("/dashboard");
     } catch {
       setError("Something went wrong");
     } finally {
