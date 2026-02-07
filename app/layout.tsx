@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Puffle | The AI-Native GTM Platform",
   icons: {
-    icon: "/logo.png",
+    icon: "/spiked-ball.svg",
   },
 };
 
