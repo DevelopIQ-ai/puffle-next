@@ -7,14 +7,14 @@
     /* Very Dark Grey */
     --text-primary: #EDEDED;
     /* Off-White */
-    --text-secondary: #C4AFA0;
-    /* Warm Sand */
-    --accent-primary: #8B0000;
-    /* Deep Red */
-    --accent-hover: #A50000;
-    /* Lighter Deep Red */
-    --accent-subtle: #330000;
-    /* Dark Red Background */
+    --text-secondary: #A0B4C4;
+    /* Cool Steel */
+    --accent-primary: #00308F;
+    /* Deep Blue */
+    --accent-hover: #004DC9;
+    /* Lighter Deep Blue */
+    --accent-subtle: #000D33;
+    /* Dark Blue Background */
     --border-color: #333333;
     /* Dark Grey Border */
 
@@ -121,9 +121,9 @@ img {
 
 /* Button Updates - Elegant & Bright */
 .btn-primary {
-    background-color: #8B0000;
+    background-color: #00308F;
     color: white;
-    border: 1px solid #8B0000;
+    border: 1px solid #00308F;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -132,10 +132,10 @@ img {
 }
 
 .btn-primary:hover {
-    background-color: #A50000;
-    border-color: #A50000;
+    background-color: #004DC9;
+    border-color: #004DC9;
     transform: translateY(-1px);
-    box-shadow: 0 0 25px rgba(139, 0, 0, 0.5), 0 0 8px rgba(139, 0, 0, 0.3);
+    box-shadow: 0 0 25px rgba(0, 48, 143, 0.5), 0 0 8px rgba(0, 48, 143, 0.3);
 }
 
 .btn-secondary {
@@ -158,7 +158,7 @@ img {
     display: inline-block;
     padding: 0.25rem 0.75rem;
     background-color: var(--accent-subtle);
-    color: #ffcccc;
+    color: #ccd9ff;
     font-size: 0.85rem;
     font-weight: 600;
     border-radius: 2rem;
@@ -263,7 +263,7 @@ h1 {
     flex: 1;
     min-height: 0;
     text-align: center;
-    background: radial-gradient(ellipse 80% 50% at 50% 10%, #1a0505 0%, transparent 60%);
+    background: radial-gradient(ellipse 80% 50% at 50% 10%, #050d1a 0%, transparent 60%);
     overflow: hidden;
     display: flex;
     flex-direction: column;
