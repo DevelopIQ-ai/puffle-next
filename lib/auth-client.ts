@@ -19,7 +19,7 @@ export function useSession() {
 
   const mapUser = useCallback((user: import("@supabase/supabase-js").User): SessionData => ({
     user: {
-      name: user.user_metadata?.name ?? "",
+      name: user.user_metadata?.name ?? user.user_metadata?.full_name ?? "",
       email: user.email ?? "",
       approved: user.app_metadata?.approved === true,
     },
