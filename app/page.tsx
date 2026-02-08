@@ -14,7 +14,7 @@ export default function Home() {
                 Automate outreach. Score leads instantly. Sync seamlessly.
               </p>
               <div className="cta-group">
-                <a href="/login" className="btn btn-primary">
+                <a href="https://app.puffle.ai" className="btn btn-primary">
                   Get Started
                 </a>
                 <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
