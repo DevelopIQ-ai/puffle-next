@@ -46,12 +46,12 @@ export default function Header() {
           onClick={(e) => handleAnchorClick(e, "#")}
         >
           <Image
-            src="/spiked-ball.svg"
+            src="/puffle-logo.svg"
             alt="Puffle Logo"
             className="navbar-logo"
             width={28}
             height={28}
-            style={{ height: 28, width: 28 }}
+            style={{ height: 28, width: 28, filter: "none" }}
           />
           Puffle
         </a>

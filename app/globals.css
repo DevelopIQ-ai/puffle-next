@@ -201,7 +201,6 @@ header {
 .navbar-logo {
     height: 32px;
     width: auto;
-    filter: invert(1) brightness(2);
 }
 
 .navbar-logo-icon {
