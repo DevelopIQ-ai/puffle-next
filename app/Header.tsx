@@ -1,11 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Header() {
+interface HeaderProps {
+  activePage?: "product" | "pricing";
+}
+
+export default function Header({ activePage }: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const container = document.querySelector(".snap-container");
@@ -25,25 +30,17 @@ export default function Header() {
     return () => container.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleAnchorClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
-    if (href === "#") return;
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  // Close menu when clicking a link
+  const handleLinkClick = () => {
+    setMenuOpen(false);
   };
 
   return (
     <header ref={headerRef}>
       <div className="container header-container">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="logo"
-          onClick={(e) => handleAnchorClick(e, "#")}
         >
           <Image
             src="/puffle-logo.svg"
@@ -54,44 +51,39 @@ export default function Header() {
             style={{ height: 28, width: 28, filter: "none" }}
           />
           Puffle
-        </a>
-        <nav>
+        </Link>
+        <nav className={menuOpen ? "nav-open" : ""}>
           <ul>
             <li>
-              <a
-                href="#product"
-                onClick={(e) => handleAnchorClick(e, "#product")}
+              <Link
+                href="/#product"
+                className={activePage === "product" ? "nav-active" : ""}
+                onClick={handleLinkClick}
               >
                 Product
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#solutions"
-                onClick={(e) => handleAnchorClick(e, "#solutions")}
-              >
-                Solutions
-              </a>
-            </li>
-            <li>
-              <a
-                href="#pricing"
-                onClick={(e) => handleAnchorClick(e, "#pricing")}
+              <Link
+                href="/pricing"
+                className={activePage === "pricing" ? "nav-active" : ""}
+                onClick={handleLinkClick}
               >
                 Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#company"
-                onClick={(e) => handleAnchorClick(e, "#company")}
-              >
-                Company
-              </a>
+              </Link>
             </li>
           </ul>
+          <div className="mobile-nav-cta">
+            <Link
+              href="https://app.puffle.ai"
+              className="btn btn-primary"
+              onClick={handleLinkClick}
+            >
+              Get Started
+            </Link>
+          </div>
         </nav>
-        <div className="nav-cta">
+        <div className="nav-cta desktop-only">
           <Link
             href="https://app.puffle.ai"
             className="btn btn-primary"
@@ -99,6 +91,21 @@ export default function Header() {
             Get Started
           </Link>
         </div>
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            </svg>
+          )}
+        </button>
       </div>
     </header>
   );
