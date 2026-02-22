@@ -11,10 +11,7 @@ export default function Home() {
           <section className="hero">
             <div className="hero-centered">
               <div className="hero-text">
-                <h1>The AI-Native GTM Operating System</h1>
-                <p className="subheadline">
-                  One platform for all your outreach
-                </p>
+                <h1>AI that finds your customers,<br />tracks their signals,<br />then messages them like you would</h1>
                 <div className="cta-group">
                   <a href="https://app.puffle.ai" className="btn btn-primary">
                     Get Started

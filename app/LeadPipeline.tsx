@@ -103,30 +103,30 @@ function StepBadge({ number, label }: { number: number; label: string }) {
   );
 }
 
-// Enrichment card with hover tilt
-function EnrichmentCard() {
+// Signal tracking card
+function TrackingCard() {
   return (
     <div className="enrichment-card">
       <div className="enrichment-header">
         <div className="lead-avatar small">SC</div>
         <div>
           <div className="lead-name">Sarah Chen</div>
-          <div className="lead-title">VP of Sales</div>
+          <div className="lead-title">VP of Sales · TechCorp</div>
         </div>
       </div>
       <div className="enrichment-data">
         <div className="enrichment-row">
-          <span className="enrichment-icon">✉️</span>
-          <span className="enrichment-value">sarah.chen@techcorp.com</span>
-          <span className="enrichment-badge">Verified</span>
+          <span className="enrichment-icon">🔥</span>
+          <span className="enrichment-value">Raised Series B yesterday</span>
+          <span className="enrichment-badge">Hot</span>
         </div>
         <div className="enrichment-row">
-          <span className="enrichment-icon">📱</span>
-          <span className="enrichment-value">+1 (415) 555-0123</span>
+          <span className="enrichment-icon">💼</span>
+          <span className="enrichment-value">Promoted to VP 2 weeks ago</span>
         </div>
         <div className="enrichment-row">
-          <span className="enrichment-icon">🏢</span>
-          <span className="enrichment-value">Series B • 50-200 employees</span>
+          <span className="enrichment-icon">👀</span>
+          <span className="enrichment-value">Visited your pricing page 3x</span>
         </div>
       </div>
     </div>
@@ -217,7 +217,7 @@ export default function LeadPipeline() {
 
         {/* Step 1: Lead Sourcing */}
         <div className="pipeline-step active">
-          <StepBadge number={1} label="Source" />
+          <StepBadge number={1} label="Find" />
           <div className="step-content">
             <div className="lead-stack">
               <LeadCard
@@ -240,9 +240,9 @@ export default function LeadPipeline() {
 
         {/* Step 2: Enrichment */}
         <div className="pipeline-step active">
-          <StepBadge number={2} label="Enrich" />
+          <StepBadge number={2} label="Track" />
           <div className="step-content">
-            <EnrichmentCard />
+            <TrackingCard />
           </div>
         </div>
 
@@ -250,7 +250,7 @@ export default function LeadPipeline() {
 
         {/* Step 3: Outbound (Split) */}
         <div className="pipeline-step pipeline-step-split active">
-          <StepBadge number={3} label="Outbound" />
+          <StepBadge number={3} label="Message" />
           <div className="step-content step-content-split">
             <ChannelCard type="linkedin" />
             <ChannelCard type="email" />
