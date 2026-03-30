@@ -14,20 +14,27 @@ export default function Header({ activePage }: HeaderProps) {
 
   useEffect(() => {
     const container = document.querySelector(".snap-container");
-    if (!container) return;
+    const target = container || window;
 
     const handleScroll = () => {
       if (!headerRef.current) return;
-      if (container.scrollTop > 50) {
+      const scrollTop = container
+        ? (container as HTMLElement).scrollTop
+        : window.scrollY;
+      if (scrollTop > 50) {
         headerRef.current.style.boxShadow =
           "0 4px 6px -1px rgb(0 0 0 / 0.1)";
+        headerRef.current.style.backgroundColor = "rgba(245, 243, 240, 0.85)";
+        headerRef.current.style.backdropFilter = "blur(20px)";
       } else {
         headerRef.current.style.boxShadow = "none";
+        headerRef.current.style.backgroundColor = "transparent";
+        headerRef.current.style.backdropFilter = "none";
       }
     };
 
-    container.addEventListener("scroll", handleScroll);
-    return () => container.removeEventListener("scroll", handleScroll);
+    target.addEventListener("scroll", handleScroll);
+    return () => target.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Close menu when clicking a link
@@ -76,7 +83,7 @@ export default function Header({ activePage }: HeaderProps) {
           <div className="mobile-nav-cta">
             <Link
               href="https://app.puffle.ai"
-              className="btn btn-primary"
+              className="btn btn-gradient"
               onClick={handleLinkClick}
             >
               Get Started
@@ -86,7 +93,7 @@ export default function Header({ activePage }: HeaderProps) {
         <div className="nav-cta desktop-only">
           <Link
             href="https://app.puffle.ai"
-            className="btn btn-primary"
+            className="btn btn-gradient"
           >
             Get Started
           </Link>
