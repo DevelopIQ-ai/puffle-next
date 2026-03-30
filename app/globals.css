@@ -3343,6 +3343,12 @@ footer {
 
 /* Responsive - Small screens */
 @media (max-width: 768px) {
+    /* Prevent all horizontal scroll on mobile */
+    body,
+    .snap-container {
+        overflow-x: hidden;
+    }
+
     /* Mobile Navigation */
     .menu-toggle {
         display: block;
@@ -3465,9 +3471,16 @@ footer {
         max-width: 300px;
     }
 
+    .hero-visual-cards {
+        display: none;
+    }
+
     .hero-features {
         padding: 0 1rem 32px;
         gap: 8px;
+        margin-top: -80px;
+        position: relative;
+        z-index: 4;
     }
 
     .hero-feature-pill {
@@ -3531,7 +3544,12 @@ footer {
     }
 
     .lf-results {
-        overflow-x: auto;
+        overflow-x: hidden;
+    }
+
+    /* Hide company column on mobile to fit table */
+    .lf-col-company {
+        display: none;
     }
 
     /* Signals */
@@ -3541,7 +3559,23 @@ footer {
 
     /* Enrichment spreadsheet */
     .enr-demo {
-        overflow-x: auto;
+        overflow-x: hidden;
+        flex-direction: column;
+    }
+
+    /* Hide sources sidebar on mobile, show below instead */
+    .enr-sources {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /* Hide Phone, Seniority, Pain Points columns (4th, 5th, 6th) on mobile */
+    .enr-th:nth-child(n+4),
+    .enr-td:nth-child(n+4) {
+        display: none;
     }
 
     /* Deep research report */
