@@ -594,6 +594,43 @@ h1 {
     color: #a3a3a3;
 }
 
+/* Pipeline step rows */
+.pipeline-step-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 3px 0;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.pipeline-step-row-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pipeline-check {
+    color: #22c55e;
+    font-weight: 700;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+}
+
+.pipeline-step-icon {
+    font-size: 0.7rem;
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+}
+
+.pipeline-step-text {
+    color: #171717;
+    font-weight: 500;
+}
+
 /* Gradient CTA Button */
 .btn-gradient {
     position: relative;
