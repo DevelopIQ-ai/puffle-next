@@ -18,8 +18,8 @@ export default function Home() {
             <HeroBackground />
             <div className="hero-split">
               <div className="hero-left">
-                <h1>GTM Infrastructure<br />for AI Agents</h1>
-                <p className="subheadline">AI agents that find leads, enrich contacts, track buying signals, and send personalized outreach across email and LinkedIn.</p>
+                <h1>Catch buyers the moment<br />they&rsquo;re ready.</h1>
+                <p className="subheadline">Real-time buying signals from every corner of the internet — turned into personalized email and LinkedIn outreach. So you reach them while it&rsquo;s hot.</p>
                 <div className="cta-group">
                   <a href="https://app.puffle.ai" className="btn btn-gradient">
                     Get Started

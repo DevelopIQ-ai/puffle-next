@@ -18,7 +18,7 @@ function BuyingSignalCard({ visible }: { visible: boolean }) {
   return (
     <div className={`info-card ${visible ? "info-card-visible" : ""}`}>
       <div className="info-card-header">
-        <span className="info-card-icon">🔔</span>
+        <span className="info-card-icon">🔥</span>
         <span className="info-card-title">Buying Signal</span>
       </div>
       <div className="info-card-body">
