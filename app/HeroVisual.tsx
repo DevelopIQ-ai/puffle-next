@@ -2,6 +2,14 @@
 
 import { useState, useEffect } from "react";
 import AsciiPortrait from "./AsciiPortrait";
+import {
+  BriefcaseIcon,
+  ListIcon,
+  MailIcon,
+  SearchIcon,
+  SendIcon,
+  SignalIcon,
+} from "./VisualIcons";
 
 function BuyingSignalCard({ visible }: { visible: boolean }) {
   const [showDetails, setShowDetails] = useState(false);
@@ -18,7 +26,7 @@ function BuyingSignalCard({ visible }: { visible: boolean }) {
   return (
     <div className={`info-card ${visible ? "info-card-visible" : ""}`}>
       <div className="info-card-header">
-        <span className="info-card-icon">🔥</span>
+        <span className="info-card-icon"><SignalIcon /></span>
         <span className="info-card-title">Buying Signal</span>
       </div>
       <div className="info-card-body">
@@ -49,7 +57,7 @@ function IdentifyProspectCard({ visible }: { visible: boolean }) {
   return (
     <div className={`info-card ${visible ? "info-card-visible" : ""}`}>
       <div className="info-card-header">
-        <span className="info-card-icon">🔍</span>
+        <span className="info-card-icon"><SearchIcon /></span>
         <span className="info-card-title">Identify Prospect</span>
       </div>
       <div className="info-card-body">
@@ -88,7 +96,7 @@ function EnrichLeadCard({ visible }: { visible: boolean }) {
   return (
     <div className={`info-card ${visible ? "info-card-visible" : ""}`}>
       <div className="info-card-header">
-        <span className="info-card-icon">📋</span>
+        <span className="info-card-icon"><ListIcon /></span>
         <span className="info-card-title">Enrich Lead</span>
       </div>
       <div className="info-card-body">
@@ -110,8 +118,8 @@ function TriggerOutboundCard({ visible }: { visible: boolean }) {
   const [visibleRows, setVisibleRows] = useState(0);
 
   const steps = [
-    { icon: "✉️", text: "Personalized email sent" },
-    { icon: "💼", text: "LinkedIn follow-up scheduled" },
+    { Icon: MailIcon, text: "Personalized email sent" },
+    { Icon: BriefcaseIcon, text: "LinkedIn follow-up scheduled" },
   ];
 
   useEffect(() => {
@@ -131,19 +139,22 @@ function TriggerOutboundCard({ visible }: { visible: boolean }) {
   return (
     <div className={`info-card ${visible ? "info-card-visible" : ""}`}>
       <div className="info-card-header">
-        <span className="info-card-icon">🚀</span>
+        <span className="info-card-icon"><SendIcon /></span>
         <span className="info-card-title">Trigger Outbound Sequence</span>
       </div>
       <div className="info-card-body">
-        {steps.map((step, i) => (
-          <div
-            key={i}
-            className={`pipeline-step-row ${i < visibleRows ? "pipeline-step-row-visible" : ""}`}
-          >
-            <span className="pipeline-step-icon">{step.icon}</span>
-            <span className="pipeline-step-text">{step.text}</span>
-          </div>
-        ))}
+        {steps.map((step, i) => {
+          const StepIcon = step.Icon;
+          return (
+            <div
+              key={i}
+              className={`pipeline-step-row ${i < visibleRows ? "pipeline-step-row-visible" : ""}`}
+            >
+              <span className="pipeline-step-icon"><StepIcon /></span>
+              <span className="pipeline-step-text">{step.text}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

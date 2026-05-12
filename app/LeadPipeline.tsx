@@ -1,6 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import {
+  BriefcaseIcon,
+  CalendarIcon,
+  CheckCircleIcon,
+  EyeIcon,
+  MessageIcon,
+  SignalIcon,
+} from './VisualIcons';
 
 // Ghost card with pulsing skeleton lines
 function GhostCard() {
@@ -34,15 +42,15 @@ function GhostCardStack() {
 
 // Outcome card showing success result
 function OutcomeCard({
-  icon,
+  Icon,
   label,
 }: {
-  icon: string;
+  Icon: typeof CalendarIcon;
   label: string;
 }) {
   return (
     <div className="outcome-card">
-      <span className="outcome-icon">{icon}</span>
+      <span className="outcome-icon"><Icon /></span>
       <span className="outcome-label">{label}</span>
     </div>
   );
@@ -53,12 +61,12 @@ function OutcomeStack() {
   return (
     <div className="outcome-stack-wrapper">
       <div className="outcome-stack">
-        <OutcomeCard icon="📅" label="Meeting Booked" />
-        <OutcomeCard icon="💬" label="Reply Received" />
-        <OutcomeCard icon="✅" label="Deal Closed" />
-        <OutcomeCard icon="📅" label="Meeting Booked" />
-        <OutcomeCard icon="💬" label="Reply Received" />
-        <OutcomeCard icon="✅" label="Deal Closed" />
+        <OutcomeCard Icon={CalendarIcon} label="Meeting Booked" />
+        <OutcomeCard Icon={MessageIcon} label="Reply Received" />
+        <OutcomeCard Icon={CheckCircleIcon} label="Deal Closed" />
+        <OutcomeCard Icon={CalendarIcon} label="Meeting Booked" />
+        <OutcomeCard Icon={MessageIcon} label="Reply Received" />
+        <OutcomeCard Icon={CheckCircleIcon} label="Deal Closed" />
       </div>
     </div>
   );
@@ -116,16 +124,16 @@ function TrackingCard() {
       </div>
       <div className="enrichment-data">
         <div className="enrichment-row">
-          <span className="enrichment-icon">🔥</span>
+          <span className="enrichment-icon"><SignalIcon /></span>
           <span className="enrichment-value">Raised Series B yesterday</span>
           <span className="enrichment-badge">Hot</span>
         </div>
         <div className="enrichment-row">
-          <span className="enrichment-icon">💼</span>
+          <span className="enrichment-icon"><BriefcaseIcon /></span>
           <span className="enrichment-value">Promoted to VP 2 weeks ago</span>
         </div>
         <div className="enrichment-row">
-          <span className="enrichment-icon">👀</span>
+          <span className="enrichment-icon"><EyeIcon /></span>
           <span className="enrichment-value">Visited your pricing page 3x</span>
         </div>
       </div>
