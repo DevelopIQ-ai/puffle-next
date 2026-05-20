@@ -20,16 +20,13 @@ export default function CtaSection() {
           and multi-channel outreach.
         </p>
         <div className="cta-group">
-          <a href="https://app.puffle.ai" className="btn btn-gradient">
-            Get Started
-          </a>
           <a
             href="https://zcal.co/i/BT5kddcb"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-outline"
+            className="btn btn-gradient"
           >
-            Request Demo
+            Book a Demo
           </a>
         </div>
       </div>

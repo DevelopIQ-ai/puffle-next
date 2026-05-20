@@ -81,22 +81,26 @@ export default function Header({ activePage }: HeaderProps) {
             </li>
           </ul>
           <div className="mobile-nav-cta">
-            <Link
-              href="https://app.puffle.ai"
+            <a
+              href="https://zcal.co/i/BT5kddcb"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-gradient"
               onClick={handleLinkClick}
             >
-              Get Started
-            </Link>
+              Book a Demo
+            </a>
           </div>
         </nav>
         <div className="nav-cta desktop-only">
-          <Link
-            href="https://app.puffle.ai"
+          <a
+            href="https://zcal.co/i/BT5kddcb"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn btn-gradient"
           >
-            Get Started
-          </Link>
+            Book a Demo
+          </a>
         </div>
         <button
           className="menu-toggle"
