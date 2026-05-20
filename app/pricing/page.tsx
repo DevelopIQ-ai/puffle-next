@@ -22,8 +22,8 @@ export default function Pricing() {
                 <p className="pricing-note">1,000 one-time credits to get started</p>
               </div>
 
-              <a href="https://app.puffle.ai" className="btn btn-outline pricing-btn">
-                Get Started
+              <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-outline pricing-btn">
+                Book a Demo
               </a>
 
               <div className="pricing-features">
@@ -59,8 +59,8 @@ export default function Pricing() {
                 <p className="pricing-note">20,000 credits/month, resets monthly</p>
               </div>
 
-              <a href="https://app.puffle.ai" className="btn btn-gradient pricing-btn">
-                Upgrade to Pro
+              <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-gradient pricing-btn">
+                Book a Demo
               </a>
 
               <div className="pricing-features">

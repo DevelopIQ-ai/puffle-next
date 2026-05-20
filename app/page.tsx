@@ -21,11 +21,8 @@ export default function Home() {
                 <h1>Catch buyers the moment<br />they&rsquo;re ready.</h1>
                 <p className="subheadline">Real-time buying signals from every corner of the internet — turned into personalized email and LinkedIn outreach. So you reach them while it&rsquo;s hot.</p>
                 <div className="cta-group">
-                  <a href="https://app.puffle.ai" className="btn btn-gradient">
-                    Get Started
-                  </a>
-                  <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-                    Request Demo
+                  <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-gradient">
+                    Book a Demo
                   </a>
                 </div>
               </div>
