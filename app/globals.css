@@ -19,6 +19,12 @@
     /* Dark Blue Background */
     --border-color: #333333;
     /* Dark Grey Border */
+    --page-cream: #f5f3f0;
+    --tiled-page-bg:
+        linear-gradient(90deg, rgba(20, 20, 20, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(20, 20, 20, 0.035) 1px, transparent 1px),
+        var(--page-cream);
+    --tiled-page-size: 72px 72px;
 
     /* Spacing & Layout */
     --container-width: 1200px;
@@ -28,7 +34,7 @@
     --spacing-xl: 4rem;
 
     /* Typography */
-    --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+    --font-sans: "Comic Sans MS", "Comic Sans", cursive;
     --font-serif: 'Instrument Serif', serif;
 
     /* Effects */
@@ -48,7 +54,8 @@
 
 body {
     font-family: var(--font-sans);
-    background-color: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     color: var(--text-primary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -269,6 +276,18 @@ nav a.nav-active::after {
     align-items: center;
 }
 
+.nav-cta .btn-primary {
+    background-color: transparent;
+    border-color: rgba(0, 48, 143, 0.32);
+    color: var(--royal-blue);
+}
+
+.nav-cta .btn-primary:hover {
+    background-color: rgba(0, 48, 143, 0.06);
+    border-color: var(--royal-blue);
+    color: var(--royal-blue);
+}
+
 /* Mobile menu toggle */
 .menu-toggle {
     display: none;
@@ -321,7 +340,8 @@ h1 {
 }
 
 .hero.hero-light {
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     position: relative;
 }
 
@@ -408,9 +428,10 @@ h1 {
     font-size: 1.05rem;
     color: #525252;
     margin-bottom: var(--spacing-lg);
-    max-width: 480px;
+    max-width: none;
     font-weight: 400;
     line-height: 1.7;
+    white-space: nowrap;
 }
 
 .cta-group {
@@ -422,9 +443,8 @@ h1 {
 .hero-visual-container {
     width: 100%;
     max-width: 420px;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 1;
     position: relative;
-    background: #f5f3f0;
     z-index: 1;
 }
 
@@ -1421,7 +1441,8 @@ h1 {
     justify-content: center;
     text-align: center;
     padding: 4rem 2rem;
-    background-color: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     border-top: none;
 }
 
@@ -1638,7 +1659,8 @@ h1 {
 
 /* Lead Finder Section */
 .lf-section {
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1683,7 +1705,8 @@ h1 {
     width: 280px;
     flex-shrink: 0;
     aspect-ratio: 3 / 4;
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
 }
 
 .lf-art .binary-logo-canvas {
@@ -1959,7 +1982,8 @@ h1 {
 
 /* Signals Section */
 .sig-section {
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2013,7 +2037,8 @@ h1 {
     width: 280px;
     flex-shrink: 0;
     aspect-ratio: 3 / 4;
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
 }
 
 .sig-art .binary-logo-canvas {
@@ -2127,7 +2152,8 @@ h1 {
 
 /* Enrichment Section */
 .enr-section {
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2172,7 +2198,8 @@ h1 {
     width: 280px;
     flex-shrink: 0;
     aspect-ratio: 3 / 4;
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
 }
 
 .enr-art .binary-logo-canvas {
@@ -2355,7 +2382,8 @@ h1 {
 
 /* Deep Research Section */
 .dr-section {
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2400,7 +2428,8 @@ h1 {
     width: 280px;
     flex-shrink: 0;
     aspect-ratio: 3 / 4;
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
 }
 
 .dr-art .binary-logo-canvas {
@@ -2576,7 +2605,8 @@ h1 {
 
 /* Campaigns Section */
 .camp-section {
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2621,7 +2651,8 @@ h1 {
     width: 280px;
     flex-shrink: 0;
     aspect-ratio: 3 / 4;
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
 }
 
 .camp-art .binary-logo-canvas {
@@ -2799,7 +2830,8 @@ h1 {
 
 /* CTA Section */
 .cta-section {
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2857,7 +2889,8 @@ h1 {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    background-color: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
     padding: var(--spacing-xl) 0;
     padding-top: 100px;
 }
@@ -3044,7 +3077,8 @@ footer {
     padding-top: 120px;
     display: flex;
     flex-direction: column;
-    background: #f5f3f0;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
 }
 
 .pricing-container {
@@ -3371,7 +3405,8 @@ footer {
         top: 80px;
         left: 0;
         right: 0;
-        background: #f5f3f0;
+        background: var(--tiled-page-bg);
+        background-size: var(--tiled-page-size);
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         padding: 1.5rem;
         transform: translateY(-100%);
@@ -3466,6 +3501,11 @@ footer {
         font-size: 2.35rem;
         max-width: 11ch;
         white-space: normal;
+    }
+
+    .subheadline {
+        font-size: 0.66rem;
+        line-height: 1.5;
     }
 
     .cta-group {
