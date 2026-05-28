@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,33 +9,7 @@ interface HeaderProps {
 }
 
 export default function Header({ activePage }: HeaderProps) {
-  const headerRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const container = document.querySelector(".snap-container");
-    const target = container || window;
-
-    const handleScroll = () => {
-      if (!headerRef.current) return;
-      const scrollTop = container
-        ? (container as HTMLElement).scrollTop
-        : window.scrollY;
-      if (scrollTop > 50) {
-        headerRef.current.style.boxShadow =
-          "0 4px 6px -1px rgb(0 0 0 / 0.1)";
-        headerRef.current.style.backgroundColor = "rgba(245, 243, 240, 0.85)";
-        headerRef.current.style.backdropFilter = "blur(20px)";
-      } else {
-        headerRef.current.style.boxShadow = "none";
-        headerRef.current.style.backgroundColor = "transparent";
-        headerRef.current.style.backdropFilter = "none";
-      }
-    };
-
-    target.addEventListener("scroll", handleScroll);
-    return () => target.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Close menu when clicking a link
   const handleLinkClick = () => {
@@ -43,7 +17,7 @@ export default function Header({ activePage }: HeaderProps) {
   };
 
   return (
-    <header ref={headerRef}>
+    <header>
       <div className="container header-container">
         <Link
           href="/"

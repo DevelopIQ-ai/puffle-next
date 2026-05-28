@@ -1,123 +1,87 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import BinaryLogo from "./BinaryLogo";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
-// Lightning bolt path (viewBox 0 0 24 24)
-const LIGHTNING_PATH =
-  "M 13 2 L 4 14 L 11 14 L 11 22 L 20 10 L 13 10 L 13 2 Z";
-
-const SIGNALS = [
+const SOCIAL_SOURCES = [
   {
-    company: "Orion AI",
-    domain: "orion-ai.com",
-    type: "Funding",
-    color: "purple",
-    title: "Raised $25M Series A led by Sequoia",
-    score: 92,
-    source: "LinkedIn",
-    time: "2h ago",
+    name: "X",
+    logo: "/social-logos/x.svg",
+    className: "sig-source-x",
   },
   {
-    company: "NovaByte",
-    domain: "novabyte.io",
-    type: "Hiring",
-    color: "emerald",
-    title: "Hiring VP of Sales — remote, SaaS experience",
-    score: 87,
-    source: "LinkedIn Jobs",
-    time: "4h ago",
+    name: "LinkedIn",
+    logo: "/social-logos/linkedin.svg",
+    className: "sig-source-linkedin",
   },
   {
-    company: "Helios Labs",
-    domain: "helioslabs.com",
-    type: "Pain Point",
-    color: "blue",
-    title: '"Frustrated with our current outreach tooling"',
-    score: 84,
-    source: "Reddit",
-    time: "6h ago",
+    name: "Google News",
+    logo: "/social-logos/google-news.svg",
+    className: "sig-source-google-news",
   },
   {
-    company: "Atlas Cloud",
-    domain: "atlascloud.dev",
-    type: "Leadership Change",
-    color: "red",
-    title: "New CRO appointed — previously at Datadog",
-    score: 81,
-    source: "News",
-    time: "8h ago",
+    name: "Reddit",
+    logo: "/social-logos/reddit.svg",
+    className: "sig-source-reddit",
+  },
+  {
+    name: "Instagram",
+    logo: "/social-logos/instagram.svg",
+    className: "sig-source-instagram",
+  },
+  {
+    name: "GitHub",
+    logo: "/social-logos/github.svg",
+    className: "sig-source-github",
+  },
+  {
+    name: "Bluesky",
+    logo: "/social-logos/bluesky.svg",
+    className: "sig-source-bluesky",
   },
 ];
 
-const COLOR_MAP: Record<string, { bg: string; text: string; dot: string }> = {
-  purple: { bg: "rgba(147, 51, 234, 0.1)", text: "#7c3aed", dot: "#8b5cf6" },
-  emerald: { bg: "rgba(16, 185, 129, 0.1)", text: "#059669", dot: "#10b981" },
-  blue: { bg: "rgba(59, 130, 246, 0.1)", text: "#2563eb", dot: "#3b82f6" },
-  red: { bg: "rgba(239, 68, 68, 0.1)", text: "#dc2626", dot: "#ef4444" },
-  violet: { bg: "rgba(139, 92, 246, 0.1)", text: "#7c3aed", dot: "#8b5cf6" },
-  cyan: { bg: "rgba(6, 182, 212, 0.1)", text: "#0891b2", dot: "#06b6d4" },
-};
+const SIGNALS = [
+  {
+    source: "Google News",
+    message:
+      "Nimbus Ops was mentioned in Google News after announcing a new RevOps hire. That usually means outbound process changes are coming.",
+  },
+  {
+    source: "Instagram",
+    message:
+      "VectorGrid is posting launch content on Instagram and LinkedIn at 3.4x their normal pace. Good expansion signal.",
+  },
+  {
+    source: "GitHub",
+    message:
+      "Forgebase has a CRM importer repo spiking 4.8x today. That looks like migration intent.",
+  },
+];
 
-function SignalCard({
-  signal,
-  visible,
-  delay,
+function SourceNode({
+  source,
+  index,
 }: {
-  signal: (typeof SIGNALS)[0];
-  visible: boolean;
-  delay: number;
+  source: (typeof SOCIAL_SOURCES)[number];
+  index: number;
 }) {
-  const colors = COLOR_MAP[signal.color] || COLOR_MAP.blue;
-
   return (
     <div
-      className={`sig-card ${visible ? "sig-card-visible" : ""}`}
-      style={{ transitionDelay: `${delay}ms` }}
+      className={`sig-source-node ${source.className}`}
+      style={{ transitionDelay: `${index * 90}ms` }}
     >
-      <div className="sig-card-top">
-        <div className="sig-card-company">
-          <span className="sig-card-avatar" style={{ background: colors.dot }}>
-            {signal.company[0]}
-          </span>
-          <div>
-            <span className="sig-card-name">{signal.company}</span>
-            <span className="sig-card-domain">{signal.domain}</span>
-          </div>
-        </div>
-        <span
-          className="sig-score"
-          style={{
-            background:
-              signal.score >= 85
-                ? "rgba(239, 68, 68, 0.08)"
-                : signal.score >= 70
-                  ? "rgba(245, 158, 11, 0.08)"
-                  : "rgba(59, 130, 246, 0.08)",
-            color:
-              signal.score >= 85
-                ? "#dc2626"
-                : signal.score >= 70
-                  ? "#d97706"
-                  : "#2563eb",
-          }}
-        >
-          {signal.score}
+      <div className="sig-source-card">
+        <span className="sig-source-mark">
+          <Image
+            src={source.logo}
+            alt={source.name}
+            width={24}
+            height={24}
+            sizes="24px"
+            className="sig-source-logo"
+          />
         </span>
-      </div>
-      <div className="sig-card-body">
-        <span
-          className="sig-type-pill"
-          style={{ background: colors.bg, color: colors.text }}
-        >
-          {signal.type}
-        </span>
-        <p className="sig-card-title">{signal.title}</p>
-      </div>
-      <div className="sig-card-meta">
-        <span>{signal.source}</span>
-        <span className="sig-card-dot">&middot;</span>
-        <span>{signal.time}</span>
       </div>
     </div>
   );
@@ -130,48 +94,156 @@ export default function SignalsSection() {
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
+    const scroller = document.querySelector(".snap-container");
+
+    const checkVisible = () => {
+      const sectionRect = section.getBoundingClientRect();
+      const rootRect = scroller?.getBoundingClientRect() ?? {
+        top: 0,
+        bottom: window.innerHeight,
+        height: window.innerHeight,
+      };
+      const visibleHeight =
+        Math.min(sectionRect.bottom, rootRect.bottom) -
+        Math.max(sectionRect.top, rootRect.top);
+      const activationHeight = Math.min(sectionRect.height, rootRect.height) * 0.22;
+
+      if (visibleHeight >= activationHeight) setVisible(true);
+    };
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.3 }
+      { root: scroller, threshold: 0.22 }
     );
 
     observer.observe(section);
-    return () => observer.disconnect();
+    requestAnimationFrame(checkVisible);
+    scroller?.addEventListener("scroll", checkVisible, { passive: true });
+    window.addEventListener("resize", checkVisible);
+
+    return () => {
+      observer.disconnect();
+      scroller?.removeEventListener("scroll", checkVisible);
+      window.removeEventListener("resize", checkVisible);
+    };
   }, []);
 
   return (
-    <section className="sig-section" ref={sectionRef}>
-      <div className="sig-content">
-        <div className="sig-text">
-          <h2>Know who&rsquo;s ready to buy</h2>
+    <section className="sig-section sig-spy-section" ref={sectionRef}>
+      <div className="sig-content sig-spy-content">
+        <div className="sig-text sig-spy-text">
+          <h2>The world&apos;s best signal tracking.</h2>
           <p>
-            13 data sources. AI-scored signals. Know the moment a prospect raises
-            funding, hires for your role, or complains about a competitor.
+            Puffle listens across GitHub, X, LinkedIn, Reddit, Bluesky,
+            Google News, and Instagram, then turns market noise into ranked
+            buying signals.
           </p>
         </div>
-        <div className="sig-split">
-          <div className="sig-feed">
-            {SIGNALS.map((signal, i) => (
-              <SignalCard
-                key={i}
-                signal={signal}
-                visible={visible}
-                delay={i * 200}
-              />
+
+        <div className={`sig-spy-shell ${visible ? "sig-spy-visible" : ""}`}>
+          <div
+            className="sig-spy-stage"
+            aria-label="Animated spy Puffle listening across social and market channels."
+          >
+            <span className="sig-radar-ring sig-radar-ring-1" aria-hidden="true" />
+            <span className="sig-radar-ring sig-radar-ring-2" aria-hidden="true" />
+            <span className="sig-radar-ring sig-radar-ring-3" aria-hidden="true" />
+            <span className="sig-radar-sweep" aria-hidden="true" />
+
+            <svg className="sig-listening-lines" viewBox="0 0 640 520" aria-hidden="true">
+              <path className="sig-line sig-line-1" d="M320 52 C320 126 320 180 320 238" />
+              <path className="sig-line sig-line-2" d="M422 88 C398 142 370 198 336 246" />
+              <path className="sig-line sig-line-3" d="M499 198 C446 216 394 238 346 255" />
+              <path className="sig-line sig-line-4" d="M493 322 C438 312 390 292 346 268" />
+              <path className="sig-line sig-line-5" d="M397 421 C374 372 346 320 328 284" />
+              <path className="sig-line sig-line-6" d="M243 421 C264 370 290 318 310 282" />
+              <path className="sig-line sig-line-7" d="M141 260 C194 258 246 258 296 260" />
+            </svg>
+
+            {SOCIAL_SOURCES.map((source, index) => (
+              <SourceNode key={source.name} source={source} index={index} />
             ))}
+
+            <div className="sig-spy-puffle" aria-hidden="true">
+              <span className="sig-spy-shadow" />
+              <div className="sig-spy-body">
+                <Image
+                  src="/puffle-logo.svg"
+                  alt=""
+                  width={166}
+                  height={166}
+                  sizes="166px"
+                  className="sig-spy-logo"
+                />
+                <Image
+                  src="/spy-hat-glasses.png"
+                  alt=""
+                  width={751}
+                  height={523}
+                  sizes="178px"
+                  className="sig-spy-accessory"
+                />
+                <span className="sig-spy-legs">
+                  <span className="sig-spy-leg sig-spy-leg-left" />
+                  <span className="sig-spy-leg sig-spy-leg-right" />
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="sig-art">
-            <BinaryLogo
-              shapePath={LIGHTNING_PATH}
-              pathSize={24}
-              color="25, 50, 120"
-              intensity={1.2}
-              cols={50}
-            />
-          </div>
+
+          <aside className="sig-chat-panel" aria-label="Puffle signal text messages">
+            <div className="sig-phone-status" aria-hidden="true">
+              <span>12:48</span>
+              <span className="sig-phone-indicators">
+                <span className="sig-phone-signal" />
+                <span className="sig-phone-wifi" />
+                <span className="sig-phone-battery" />
+              </span>
+            </div>
+            <div className="sig-chat-header">
+              <span className="sig-chat-back" aria-hidden="true">
+                ‹
+              </span>
+              <div className="sig-chat-contact-wrap">
+                <span className="sig-chat-contact">
+                  <Image
+                    src="/puffle-logo.svg"
+                    alt=""
+                    width={28}
+                    height={28}
+                    sizes="28px"
+                  />
+                </span>
+                <strong>Puffle</strong>
+              </div>
+              <span className="sig-chat-info" aria-hidden="true">
+                i
+              </span>
+            </div>
+
+            <div className="sig-chat-thread">
+              <span className="sig-chat-time">Today 12:48 PM</span>
+              <div className="sig-chat-message sig-chat-message-me">
+                <div className="sig-chat-bubble">Any good buying signals today?</div>
+              </div>
+              {SIGNALS.map((signal, index) => (
+                <div
+                  className="sig-chat-message sig-chat-message-puffle"
+                  key={signal.source}
+                  style={{ transitionDelay: `${260 + index * 120}ms` }}
+                >
+                  <div className="sig-chat-bubble">{signal.message}</div>
+                </div>
+              ))}
+            </div>
+            <div className="sig-chat-compose" aria-hidden="true">
+              <span className="sig-chat-plus">+</span>
+              <span className="sig-chat-input">iMessage</span>
+              <span className="sig-chat-send">↑</span>
+            </div>
+          </aside>
         </div>
       </div>
     </section>

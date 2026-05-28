@@ -2,7 +2,6 @@ import Header from "./Header";
 import LeadFinderSection from "./LeadFinderSection";
 import SignalsSection from "./SignalsSection";
 import EnrichmentSection from "./EnrichmentSection";
-import DeepResearchSection from "./DeepResearchSection";
 import CampaignsSection from "./CampaignsSection";
 import CtaSection from "./CtaSection";
 import HeroVisual from "./HeroVisual";
@@ -50,10 +49,6 @@ export default function Home() {
 
         <div className="snap-page">
           <EnrichmentSection />
-        </div>
-
-        <div className="snap-page">
-          <DeepResearchSection />
         </div>
 
         <div className="snap-page">
