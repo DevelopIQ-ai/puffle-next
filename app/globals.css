@@ -34,7 +34,7 @@
     --spacing-xl: 4rem;
 
     /* Typography */
-    --font-sans: "Comic Sans MS", "Comic Sans", cursive;
+    --font-sans: 'Outfit', sans-serif;
     --font-serif: 'Instrument Serif', serif;
 
     /* Effects */
