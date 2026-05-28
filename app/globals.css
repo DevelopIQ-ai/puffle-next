@@ -3070,6 +3070,76 @@ footer {
     color: white;
 }
 
+/* Legal Pages */
+.legal-page {
+    min-height: calc(100vh - 58px);
+    padding-top: 112px;
+    background: var(--tiled-page-bg);
+    background-size: var(--tiled-page-size);
+    color: #171717;
+}
+
+.legal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-bottom: 48px;
+}
+
+.legal-container h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 7vw, 4.75rem);
+    font-weight: 400;
+    line-height: 0.95;
+    color: #171717;
+}
+
+.legal-policy-content {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: white;
+    padding: clamp(24px, 5vw, 56px);
+    color: #404040;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.legal-policy-content h1,
+.legal-policy-content h2,
+.legal-policy-content h3 {
+    color: #171717;
+    line-height: 1.2;
+    margin: 24px 0 12px;
+}
+
+.legal-policy-content h1 {
+    display: none;
+}
+
+.legal-policy-content p,
+.legal-policy-content div {
+    max-width: 860px;
+}
+
+.legal-policy-content a {
+    color: var(--royal-blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.legal-policy-content ul,
+.legal-policy-content ol {
+    list-style: revert;
+    max-width: 820px;
+    padding-left: 24px;
+    margin: 12px 0;
+}
+
+.legal-policy-content li {
+    margin: 6px 0;
+}
+
 /* Pricing Page */
 /* ─── Pricing Page ─── */
 .pricing-page {
