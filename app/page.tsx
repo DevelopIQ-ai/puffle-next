@@ -7,6 +7,7 @@ import CampaignsSection from "./CampaignsSection";
 import CtaSection from "./CtaSection";
 import HeroVisual from "./HeroVisual";
 import HeroBackground from "./HeroBackground";
+import GtmStackSection from "./GtmStackSection";
 
 export default function Home() {
   return (
@@ -33,6 +34,10 @@ export default function Home() {
               </div>
             </div>
           </section>
+        </div>
+
+        <div className="snap-page">
+          <GtmStackSection />
         </div>
 
         <div className="snap-page">
