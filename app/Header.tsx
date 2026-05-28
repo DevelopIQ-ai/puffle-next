@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface HeaderProps {
-  activePage?: "product" | "pricing";
+  activePage?: "product" | "pricing" | "docs";
 }
 
 export default function Header({ activePage }: HeaderProps) {
@@ -59,48 +59,61 @@ export default function Header({ activePage }: HeaderProps) {
           />
           Puffle
         </Link>
-        <nav className={menuOpen ? "nav-open" : ""}>
-          <ul>
-            <li>
-              <Link
-                href="/#product"
-                className={activePage === "product" ? "nav-active" : ""}
+        <div className="header-actions">
+          <nav className={menuOpen ? "nav-open" : ""}>
+            <ul>
+              <li>
+                <Link
+                  href="/#product"
+                  className={activePage === "product" ? "nav-active" : ""}
+                  onClick={handleLinkClick}
+                >
+                  Product
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pricing"
+                  className={activePage === "pricing" ? "nav-active" : ""}
+                  onClick={handleLinkClick}
+                >
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://docs.puffle.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={activePage === "docs" ? "nav-active" : ""}
+                  onClick={handleLinkClick}
+                >
+                  Docs
+                </a>
+              </li>
+            </ul>
+            <div className="mobile-nav-cta">
+              <a
+                href="https://zcal.co/i/BT5kddcb"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
                 onClick={handleLinkClick}
               >
-                Product
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/pricing"
-                className={activePage === "pricing" ? "nav-active" : ""}
-                onClick={handleLinkClick}
-              >
-                Pricing
-              </Link>
-            </li>
-          </ul>
-          <div className="mobile-nav-cta">
+                Book a Demo
+              </a>
+            </div>
+          </nav>
+          <div className="nav-cta desktop-only">
             <a
               href="https://zcal.co/i/BT5kddcb"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-gradient"
-              onClick={handleLinkClick}
+              className="btn btn-primary"
             >
               Book a Demo
             </a>
           </div>
-        </nav>
-        <div className="nav-cta desktop-only">
-          <a
-            href="https://zcal.co/i/BT5kddcb"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-gradient"
-          >
-            Book a Demo
-          </a>
         </div>
         <button
           className="menu-toggle"

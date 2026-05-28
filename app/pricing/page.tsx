@@ -59,7 +59,7 @@ export default function Pricing() {
                 <p className="pricing-note">20,000 credits/month, resets monthly</p>
               </div>
 
-              <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-gradient pricing-btn">
+              <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-primary pricing-btn">
                 Book a Demo
               </a>
 
