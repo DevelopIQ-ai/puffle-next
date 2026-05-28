@@ -24,7 +24,7 @@ export default function CtaSection() {
             href="https://zcal.co/i/BT5kddcb"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-gradient"
+            className="btn btn-primary"
           >
             Book a Demo
           </a>

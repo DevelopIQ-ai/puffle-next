@@ -45,11 +45,11 @@ export default function Carousel() {
             <line x1="200" y1="200" x2="40" y2="300" className="connect-line line-3" />
             <line x1="200" y1="200" x2="40" y2="100" className="connect-line line-4" />
             {/* Animated pulses traveling along each line */}
-            <circle cx="200" cy="200" r="4" fill="#4169e1" className="connect-pulse pulse-0" />
-            <circle cx="200" cy="200" r="4" fill="#4169e1" className="connect-pulse pulse-1" />
-            <circle cx="200" cy="200" r="4" fill="#4169e1" className="connect-pulse pulse-2" />
-            <circle cx="200" cy="200" r="4" fill="#4169e1" className="connect-pulse pulse-3" />
-            <circle cx="200" cy="200" r="4" fill="#4169e1" className="connect-pulse pulse-4" />
+            <circle cx="200" cy="200" r="4" fill="#00308f" className="connect-pulse pulse-0" />
+            <circle cx="200" cy="200" r="4" fill="#00308f" className="connect-pulse pulse-1" />
+            <circle cx="200" cy="200" r="4" fill="#00308f" className="connect-pulse pulse-2" />
+            <circle cx="200" cy="200" r="4" fill="#00308f" className="connect-pulse pulse-3" />
+            <circle cx="200" cy="200" r="4" fill="#00308f" className="connect-pulse pulse-4" />
           </svg>
 
           {/* Puffle center logo */}

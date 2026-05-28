@@ -33,7 +33,7 @@ export default function BinaryLogo({
   pathSize = 375,
   pathWidth,
   pathHeight,
-  color = "65, 105, 225",
+  color = "0, 48, 143",
   intensity = 0.45,
   fontSize = 11,
   cols: colsApprox = 50,
