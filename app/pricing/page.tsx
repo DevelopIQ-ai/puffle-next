@@ -1,3 +1,4 @@
+import Footer from "../Footer";
 import Header from "../Header";
 
 export default function Pricing() {
@@ -151,17 +152,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <footer>
-          <div className="container footer-bar">
-            <span className="footer-logo">Puffle</span>
-            <span className="footer-copy">&copy; 2025 DevelopIQ Inc.</span>
-            <div className="footer-links">
-              <a href="/pricing">Pricing</a>
-              <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=a66fefbe-11ff-441f-9d4c-42bbd48daf82" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-              <a href="https://app.termly.io/policy-viewer/policy.html?policyUUID=53c9b308-2fea-4556-b207-9bb50dcd2f16" target="_blank" rel="noopener noreferrer">Terms of Service</a>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </>
   );
