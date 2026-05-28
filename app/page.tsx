@@ -20,7 +20,7 @@ export default function Home() {
               <div className="hero-left">
                 <h1>AI Go-to-Market Engineer.</h1>
                 <p className="subheadline">
-                  Puffle helps you set up the GTM infrastructure you need to grow.
+                  Describe a GTM workflow, and Puffle will bring it to life.
                 </p>
                 <div className="cta-group">
                   <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-primary">

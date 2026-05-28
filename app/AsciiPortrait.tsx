@@ -60,14 +60,11 @@ export default function AsciiPortrait({
           const green = imageData.data[idx + 1];
           const blue = imageData.data[idx + 2];
           const alpha = imageData.data[idx + 3];
-          // luminance
-          const brightness =
-            alpha < 128
-              ? 0
-              : (0.299 * red + 0.587 * green + 0.114 * blue) / 255;
+          const luminance =
+            (0.299 * red + 0.587 * green + 0.114 * blue) / 255;
 
-          // Invert: dark pixels = high value, light pixels = low value
-          const darkness = 1 - brightness;
+          // Transparent pixels should remain empty; darker visible pixels draw stronger.
+          const darkness = alpha < 128 ? 0 : 1 - luminance;
 
           let char: string;
           if (mode === "ascii") {
