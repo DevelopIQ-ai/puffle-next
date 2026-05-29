@@ -2,12 +2,12 @@ import Header from "./Header";
 import LeadFinderSection from "./LeadFinderSection";
 import SignalsSection from "./SignalsSection";
 import EnrichmentSection from "./EnrichmentSection";
-import DeepResearchSection from "./DeepResearchSection";
 import CampaignsSection from "./CampaignsSection";
 import CtaSection from "./CtaSection";
 import Footer from "./Footer";
 import HeroVisual from "./HeroVisual";
 import HeroBackground from "./HeroBackground";
+import GtmStackSection from "./GtmStackSection";
 
 export default function Home() {
   return (
@@ -37,6 +37,10 @@ export default function Home() {
         </div>
 
         <div className="snap-page">
+          <GtmStackSection />
+        </div>
+
+        <div className="snap-page">
           <LeadFinderSection />
         </div>
 
@@ -46,10 +50,6 @@ export default function Home() {
 
         <div className="snap-page">
           <EnrichmentSection />
-        </div>
-
-        <div className="snap-page">
-          <DeepResearchSection />
         </div>
 
         <div className="snap-page">
