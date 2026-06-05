@@ -6,7 +6,7 @@ export default function Footer() {
     <footer>
       <div className="container footer-bar">
         <span className="footer-logo">Puffle</span>
-        <span className="footer-copy">&copy; 2025 DevelopIQ Inc.</span>
+        <span className="footer-copy">&copy; 2026 DevelopIQ Inc.</span>
         <div className="footer-links">
           <Link href="/pricing">Pricing</Link>
           <Link href={legalRoutes.privacy}>Privacy Policy</Link>

@@ -36,6 +36,7 @@
     /* Typography */
     --font-sans: 'Outfit', sans-serif;
     --font-serif: 'Instrument Serif', serif;
+    --font-comic: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
 
     /* Effects */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
@@ -424,7 +425,7 @@ h1 {
 }
 
 .subheadline {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 1.05rem;
     color: #525252;
     margin-bottom: var(--spacing-lg);
@@ -1692,7 +1693,7 @@ h1 {
 }
 
 .gtm-copy p {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 1.05rem;
     color: #525252;
     max-width: 500px;
@@ -2247,7 +2248,7 @@ h1 {
 }
 
 .lf-text p {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 1.05rem;
     color: #525252;
     max-width: 520px;
@@ -2588,7 +2589,7 @@ h1 {
 }
 
 .sig-text p {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 1.02rem;
     color: #525252;
     max-width: 690px;
@@ -3246,7 +3247,7 @@ h1 {
 }
 
 .enr-text p {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 1.05rem;
     color: #525252;
     max-width: 560px;
@@ -3699,7 +3700,7 @@ h1 {
 }
 
 .camp-text p {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 1.05rem;
     color: #525252;
     max-width: 560px;
@@ -3859,7 +3860,7 @@ h1 {
 }
 
 .camp-step-note {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 0.68rem;
     color: #525252;
     line-height: 1.5;
@@ -3929,7 +3930,7 @@ h1 {
     max-width: 480px;
     margin: 0 auto;
     color: #525252;
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 0.94rem;
     line-height: 1.45;
 }
@@ -4310,7 +4311,7 @@ h1 {
 }
 
 .cta-inner p {
-    font-family: var(--font-sans);
+    font-family: var(--font-comic);
     font-size: 1.05rem;
     color: #525252;
     line-height: 1.7;
@@ -4609,6 +4610,7 @@ footer {
 }
 
 .pricing-subtitle {
+    font-family: var(--font-comic);
     font-size: 0.875rem;
     color: #737373;
     margin-bottom: 2.5rem;
@@ -4701,6 +4703,7 @@ footer {
 }
 
 .pricing-note {
+    font-family: var(--font-comic);
     font-size: 0.875rem;
     color: #737373;
     margin-top: 0.5rem;
@@ -4787,6 +4790,7 @@ footer {
 }
 
 .credits-subtitle {
+    font-family: var(--font-comic);
     font-size: 0.875rem;
     color: #737373;
     margin-bottom: 2rem;
