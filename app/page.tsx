@@ -1,10 +1,7 @@
 import Header from "./Header";
-import SignalsSection from "./SignalsSection";
-import CampaignsSection from "./CampaignsSection";
 import Footer from "./Footer";
-import HeroVisual from "./HeroVisual";
-import HeroBackground from "./HeroBackground";
-import GtmStackSection from "./GtmStackSection";
+import HeroDoodles from "./HeroDoodles";
+import HeroLeadForm from "./HeroLeadForm";
 
 export default function Home() {
   return (
@@ -13,36 +10,22 @@ export default function Home() {
       <main className="snap-container">
         <div className="snap-page snap-page-hero">
           <section className="hero hero-light">
-            <HeroBackground />
+            <HeroDoodles />
             <div className="hero-split">
               <div className="hero-left">
-                <h1>Your AI GTM sidekick.</h1>
+                <h1>
+                  <span className="headline-line">
+                    Puffle finds <em>hidden</em> ways
+                  </span>
+                  <span className="headline-line">to get you customers</span>
+                </h1>
                 <p className="subheadline">
-                  Describe a GTM workflow, and Puffle will bring it to life.
+                  See what it finds for you
                 </p>
-                <div className="cta-group">
-                  <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                    Book a Demo
-                  </a>
-                </div>
-              </div>
-              <div className="hero-right">
-                <HeroVisual />
+                <HeroLeadForm />
               </div>
             </div>
           </section>
-        </div>
-
-        <div className="snap-page">
-          <GtmStackSection />
-        </div>
-
-        <div className="snap-page">
-          <SignalsSection />
-        </div>
-
-        <div className="snap-page snap-page-bottom">
-          <CampaignsSection />
           <Footer />
         </div>
       </main>

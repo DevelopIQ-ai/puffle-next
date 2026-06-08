@@ -8,7 +8,7 @@ export default function Footer() {
         <span className="footer-logo">Puffle</span>
         <span className="footer-copy">&copy; 2026 DevelopIQ Inc.</span>
         <div className="footer-links">
-          <Link href="/pricing">Pricing</Link>
+          <a href="mailto:careers@puffle.ai">Careers</a>
           <Link href={legalRoutes.privacy}>Privacy Policy</Link>
           <Link href={legalRoutes.terms}>Terms of Service</Link>
         </div>

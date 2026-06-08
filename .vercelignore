@@ -1,0 +1,9 @@
+.context
+.git
+.next
+.playwright-mcp
+.vercel
+.env
+.env.local
+node_modules
+tsconfig.tsbuildinfo
