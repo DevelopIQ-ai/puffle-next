@@ -107,7 +107,7 @@ const coinCosts = [
 export default function Pricing() {
   return (
     <>
-      <Header activePage="pricing" />
+      <Header />
       <main className="pricing-page">
         <div className="pricing-container">
           <h1 className="pricing-title">Pricing</h1>
