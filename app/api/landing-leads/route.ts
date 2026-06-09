@@ -22,6 +22,8 @@ type ContactPayload = {
 
 type JsonRecord = Record<string, unknown>;
 
+type LeadNotificationStage = "company" | "contact";
+
 function getSupabaseClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const secretKey = process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -398,6 +400,181 @@ function buildContactTrackingFields(request: NextRequest, rawClientMetadata: unk
   };
 }
 
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, (character) => {
+    switch (character) {
+      case "&":
+        return "&amp;";
+      case "<":
+        return "&lt;";
+      case ">":
+        return "&gt;";
+      case '"':
+        return "&quot;";
+      case "'":
+        return "&#39;";
+      default:
+        return character;
+    }
+  });
+}
+
+function formatNotificationValue(value: unknown) {
+  if (value == null || value === "") {
+    return "n/a";
+  }
+
+  if (Array.isArray(value)) {
+    return value.length > 0 ? value.join(", ") : "n/a";
+  }
+
+  return String(value);
+}
+
+function getNotificationRecipients() {
+  const value = process.env.LEAD_NOTIFICATION_EMAIL ?? process.env.LEAD_NOTIFICATION_TO;
+
+  return value
+    ? value
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean)
+    : [];
+}
+
+function buildLeadNotificationContent({
+  stage,
+  leadId,
+  companyUrl,
+  companyInput,
+  email,
+  trackingFields,
+  contactTrackingFields,
+}: {
+  stage: LeadNotificationStage;
+  leadId: string;
+  companyUrl: string;
+  companyInput?: string | null;
+  email?: string | null;
+  trackingFields: JsonRecord;
+  contactTrackingFields?: JsonRecord;
+}) {
+  const requestMetadata = getRecord(trackingFields, "request_metadata");
+  const clientMetadata = getRecord(trackingFields, "client_metadata");
+  const contactRequestMetadata = contactTrackingFields ? getRecord(contactTrackingFields, "contact_request_metadata") : {};
+  const contactClientMetadata = contactTrackingFields ? getRecord(contactTrackingFields, "contact_client_metadata") : {};
+  const userAgent = getString(requestMetadata, "user_agent") ?? getString(contactRequestMetadata, "user_agent");
+  const pageUrl = getString(trackingFields, "page_url") ?? getString(clientMetadata, "page_url") ?? getString(contactClientMetadata, "page_url");
+  const visitorId = getString(trackingFields, "visitor_id") ?? getString(contactClientMetadata, "visitor_id");
+  const sessionId = getString(trackingFields, "session_id") ?? getString(contactClientMetadata, "session_id");
+
+  const rows: Array<[string, unknown]> = [
+    ["Stage", stage === "company" ? "Company submitted" : "Contact submitted"],
+    ["Lead ID", leadId],
+    ["Company", companyUrl],
+    ["Original input", companyInput],
+    ["Email", email],
+    ["IP", trackingFields.ip_address],
+    ["IP chain", trackingFields.ip_chain],
+    ["Page", pageUrl],
+    ["Referrer", trackingFields.page_referrer ?? trackingFields.referrer],
+    ["UTM source", trackingFields.utm_source],
+    ["UTM medium", trackingFields.utm_medium],
+    ["UTM campaign", trackingFields.utm_campaign],
+    ["GCLID", trackingFields.gclid],
+    ["Visitor ID", visitorId],
+    ["Session ID", sessionId],
+    ["Country", trackingFields.country],
+    ["Region", trackingFields.region],
+    ["City", trackingFields.city],
+    ["Timezone", trackingFields.timezone],
+    ["Browser language", trackingFields.browser_language],
+    ["Platform", trackingFields.platform],
+    ["Viewport", trackingFields.viewport_width && trackingFields.viewport_height ? `${trackingFields.viewport_width}x${trackingFields.viewport_height}` : null],
+    ["Screen", trackingFields.screen_width && trackingFields.screen_height ? `${trackingFields.screen_width}x${trackingFields.screen_height}` : null],
+    ["User agent", userAgent],
+  ];
+
+  const text = rows.map(([label, value]) => `${label}: ${formatNotificationValue(value)}`).join("\n");
+  const htmlRows = rows
+    .map(([label, value]) => {
+      return `<tr><th align="left" style="padding:6px 10px;border-bottom:1px solid #eee;white-space:nowrap;">${escapeHtml(label)}</th><td style="padding:6px 10px;border-bottom:1px solid #eee;">${escapeHtml(formatNotificationValue(value))}</td></tr>`;
+    })
+    .join("");
+
+  return {
+    subject: stage === "company" ? `New Puffle lead: ${companyUrl}` : `Puffle lead added email: ${companyUrl}`,
+    text,
+    html: `<h2 style="font-family:Arial,sans-serif;">${stage === "company" ? "New Puffle lead" : "Puffle lead contact added"}</h2><table style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px;">${htmlRows}</table>`,
+  };
+}
+
+async function sendLeadNotification(input: {
+  stage: LeadNotificationStage;
+  leadId: string;
+  companyUrl: string;
+  companyInput?: string | null;
+  email?: string | null;
+  trackingFields: JsonRecord;
+  contactTrackingFields?: JsonRecord;
+}) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.RESEND_FROM_EMAIL ?? process.env.LEAD_NOTIFICATION_FROM;
+  const to = getNotificationRecipients();
+
+  if (!apiKey || !from || to.length === 0) {
+    console.warn("Landing lead notification skipped: Resend env vars are not configured.");
+    return;
+  }
+
+  const { subject, text, html } = buildLeadNotificationContent(input);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+        "Idempotency-Key": `landing-lead-${input.stage}-${input.leadId}`,
+      },
+      body: JSON.stringify({
+        from,
+        to,
+        subject,
+        text,
+        html,
+        tags: [
+          { name: "source", value: "landing-leads" },
+          { name: "stage", value: input.stage },
+        ],
+      }),
+      signal: controller.signal,
+    });
+
+    if (!response.ok) {
+      const body = await response.text();
+      console.error("Landing lead notification failed", {
+        status: response.status,
+        body: body.slice(0, 1000),
+      });
+      return;
+    }
+
+    const result = (await response.json()) as { id?: string };
+    console.info("Landing lead notification sent", {
+      stage: input.stage,
+      leadId: input.leadId,
+      emailId: result.id,
+    });
+  } catch (caughtError) {
+    console.error("Landing lead notification failed", caughtError);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 function landingLeadError(message: string, status = 400) {
   return NextResponse.json({ error: message }, { status });
 }
@@ -472,6 +649,14 @@ export async function POST(request: NextRequest) {
         return landingLeadError("Could not save that company link yet.", 500);
       }
 
+      await sendLeadNotification({
+        stage: "company",
+        leadId: data.id,
+        companyUrl: normalizedCompanyUrl,
+        companyInput: companyUrl,
+        trackingFields,
+      });
+
       return NextResponse.json({ id: data.id });
     }
 
@@ -488,6 +673,7 @@ export async function POST(request: NextRequest) {
       }
 
       const submittedAt = new Date().toISOString();
+      const contactTrackingFields = buildContactTrackingFields(request, payload.clientMetadata, submittedAt);
 
       const { data, error } = await supabase
         .from(tableName)
@@ -495,16 +681,28 @@ export async function POST(request: NextRequest) {
           email,
           status: "contact_submitted",
           updated_at: submittedAt,
-          ...buildContactTrackingFields(request, payload.clientMetadata, submittedAt),
+          ...contactTrackingFields,
         })
         .eq("id", leadId)
-        .select("id")
+        .select(
+          "id, company_url, company_input, visitor_id, session_id, ip_address, ip_chain, page_url, page_referrer, referrer, utm_source, utm_medium, utm_campaign, gclid, country, region, city, timezone, browser_language, platform, viewport_width, viewport_height, screen_width, screen_height, user_agent, request_metadata, client_metadata",
+        )
         .single();
 
       if (error) {
         console.error("Landing lead contact save failed", error);
         return landingLeadError("Could not save your contact details yet.", 500);
       }
+
+      await sendLeadNotification({
+        stage: "contact",
+        leadId: data.id,
+        companyUrl: data.company_url,
+        companyInput: data.company_input,
+        email,
+        trackingFields: cleanJsonObject(data),
+        contactTrackingFields,
+      });
 
       return NextResponse.json({ id: data.id });
     }
