@@ -24,10 +24,10 @@ type JsonRecord = Record<string, unknown>;
 
 function getSupabaseClient() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const secretKey = process.env.SUPABASE_SECRET_KEY;
+  const secretKey = process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !secretKey) {
-    throw new Error("Supabase env vars are not configured. Set NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SECRET_KEY.");
+    throw new Error("Supabase env vars are not configured. Set NEXT_PUBLIC_SUPABASE_URL and a server-side Supabase key.");
   }
 
   return createClient(url, secretKey, {
