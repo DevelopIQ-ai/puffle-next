@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { isIP } from "net";
+import { sendLandingLeadNotification } from "./emailNotification";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -76,6 +77,10 @@ function cleanOptional(value: unknown) {
 
   const trimmed = value.trim();
   return trimmed.length > 0 ? trimmed : null;
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 function cleanMetadataValue(value: unknown, depth = 0): unknown {
@@ -472,6 +477,15 @@ export async function POST(request: NextRequest) {
         return landingLeadError("Could not save that company link yet.", 500);
       }
 
+      await sendLandingLeadNotification({
+        step: "company",
+        leadId: data.id,
+        companyInput: companyUrl,
+        companyUrl: normalizedCompanyUrl,
+        pageUrl: getString(clientMetadata, "page_url"),
+        requestUrl: request.url,
+      });
+
       return NextResponse.json({ id: data.id });
     }
 
@@ -487,7 +501,12 @@ export async function POST(request: NextRequest) {
         return landingLeadError("Add an email.");
       }
 
+      if (!isValidEmail(email)) {
+        return landingLeadError("Enter a valid email.");
+      }
+
       const submittedAt = new Date().toISOString();
+      const contactTrackingFields = buildContactTrackingFields(request, payload.clientMetadata, submittedAt);
 
       const { data, error } = await supabase
         .from(tableName)
@@ -495,16 +514,27 @@ export async function POST(request: NextRequest) {
           email,
           status: "contact_submitted",
           updated_at: submittedAt,
-          ...buildContactTrackingFields(request, payload.clientMetadata, submittedAt),
+          ...contactTrackingFields,
         })
         .eq("id", leadId)
-        .select("id")
+        .select("id, company_url, company_input")
         .single();
 
       if (error) {
         console.error("Landing lead contact save failed", error);
         return landingLeadError("Could not save your contact details yet.", 500);
       }
+
+      await sendLandingLeadNotification({
+        step: "contact",
+        leadId: data.id,
+        companyInput: data.company_input,
+        companyUrl: data.company_url,
+        email,
+        pageUrl: getString(contactTrackingFields.contact_client_metadata, "page_url"),
+        requestUrl: request.url,
+        submittedAt,
+      });
 
       return NextResponse.json({ id: data.id });
     }
