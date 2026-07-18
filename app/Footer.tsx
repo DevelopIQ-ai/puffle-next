@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { legalRoutes } from "./legalPolicies";
+import { CONTACT_EMAIL, PRIMARY_NAVIGATION } from "./site";
 
 export default function Footer() {
   return (
@@ -8,6 +9,13 @@ export default function Footer() {
         <span className="footer-logo">Puffle</span>
         <span className="footer-copy">&copy; 2026 DevelopIQ Inc.</span>
         <div className="footer-links">
+          {PRIMARY_NAVIGATION.map((item) => (
+            <Link href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
+          <Link href="/about">About</Link>
+          <a href={`mailto:${CONTACT_EMAIL}`}>Contact</a>
           <a href="mailto:careers@puffle.ai">Careers</a>
           <Link href={legalRoutes.privacy}>Privacy Policy</Link>
           <Link href={legalRoutes.terms}>Terms of Service</Link>

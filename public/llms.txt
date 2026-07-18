@@ -1,0 +1,43 @@
+# Puffle
+
+> Puffle is an AI GTM operator for founder-led teams. It finds growth opportunities, discovers and qualifies leads, and prepares personalized outbound across email and LinkedIn.
+
+Puffle is built by DevelopIQ Inc. in San Francisco, California.
+
+## Product
+
+Puffle follows one operating loop:
+
+1. Learn the company, market, customer, and GTM goal.
+2. Propose focused growth strategies.
+3. Discover and qualify relevant companies and people.
+4. Prepare personalized email and LinkedIn outbound.
+5. Let the user review and approve before launch.
+6. Keep replies and next actions organized in Unibox.
+
+Puffle is designed for founder-led and lean GTM teams. It is not a fully autonomous sender: users approve strategies and outbound before launch.
+
+## Canonical pages
+
+- [Homepage](https://www.puffle.ai/): official Puffle website
+- [AI GTM agent](https://www.puffle.ai/ai-gtm-agent): product definition and capabilities
+- [How Puffle works](https://www.puffle.ai/how-it-works): end-to-end workflow
+- [Founder-led GTM](https://www.puffle.ai/founder-led-gtm): target customer and use cases
+- [Outbound automation](https://www.puffle.ai/outbound-automation): email and LinkedIn workflow
+- [Puffle vs. Clay](https://www.puffle.ai/compare/puffle-vs-clay): product comparison
+- [Pricing](https://www.puffle.ai/pricing): current plans and lead volumes
+- [About](https://www.puffle.ai/about): company facts
+- [Application](https://app.puffle.ai/): Puffle product
+- [Documentation](https://docs.puffle.ai/): product documentation
+
+## Current pricing
+
+- Free: $0, including 200 one-time fresh leads.
+- Starter: $100 per month, including 1,000 fresh leads per month.
+- Pro: $250 per month, including 5,000 fresh leads per month.
+- Custom: contact Puffle for tailored volume and workflows.
+
+## Contact
+
+- Sales and company questions: kush@puffle.ai
+- Careers: careers@puffle.ai
