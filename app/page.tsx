@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+import Footer from "./Footer";
 import Header from "./Header";
 import HeroLeadForm from "./HeroLeadForm";
 import JsonLd from "./JsonLd";
@@ -53,6 +54,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

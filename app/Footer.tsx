@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { legalRoutes } from "./legalPolicies";
-import { CONTACT_EMAIL, PRIMARY_NAVIGATION } from "./site";
+import { CONTACT_EMAIL } from "./site";
+
+const FOOTER_NAVIGATION = [
+  { href: "/how-it-works", label: "How it works" },
+  { href: "/ai-growth-hire", label: "AI growth hire" },
+  { href: "/pricing", label: "Pricing" },
+] as const;
 
 export default function Footer() {
   return (
@@ -9,7 +15,7 @@ export default function Footer() {
         <span className="footer-logo">Puffle</span>
         <span className="footer-copy">&copy; 2026 DevelopIQ Inc.</span>
         <div className="footer-links">
-          {PRIMARY_NAVIGATION.map((item) => (
+          {FOOTER_NAVIGATION.map((item) => (
             <Link href={item.href} key={item.href}>
               {item.label}
             </Link>

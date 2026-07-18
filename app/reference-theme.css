@@ -1053,6 +1053,14 @@ body:has(.legal-page) footer {
   font-family: var(--font-sans);
 }
 
+body:has(.home-page) footer {
+  border-top: 1px solid rgba(10, 10, 10, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  background-size: auto;
+  color: #5d5d5d;
+  font-family: var(--font-sans);
+}
+
 @media (max-width: 900px) {
   body:has(.content-page) .header-actions nav,
   body:has(.pricing-page) .header-actions nav,
