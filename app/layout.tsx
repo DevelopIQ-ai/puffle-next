@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/puffle-logo.svg",
+    icon: "/puffle-logo.png",
   },
 };
 
@@ -73,7 +73,7 @@ const organizationSchema = {
   ],
   legalName: LEGAL_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/puffle-logo.svg`,
+  logo: `${SITE_URL}/puffle-logo.png`,
   email: CONTACT_EMAIL,
   description: SITE_DESCRIPTION,
   foundingLocation: {

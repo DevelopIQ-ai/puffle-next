@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import Header from "./Header";
@@ -37,6 +38,14 @@ export default function Home() {
       <main className="home-page">
         <section className="sauna-home-hero">
           <div className="sauna-home-copy">
+            <Image
+              className="sauna-home-logo"
+              src="/puffle-logo.png"
+              alt=""
+              width={72}
+              height={72}
+              priority
+            />
             <h1>Your AI growth hire.</h1>
             <p className="sauna-home-dek">
               Puffle finds the hidden ways to get you customers.

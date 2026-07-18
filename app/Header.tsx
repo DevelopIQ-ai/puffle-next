@@ -12,12 +12,12 @@ export default function Header() {
           className="logo"
         >
           <Image
-            src="/puffle-logo.svg"
+            src="/puffle-logo.png"
             alt="Puffle Logo"
             className="navbar-logo"
-            width={28}
-            height={28}
-            style={{ height: 28, width: 28, filter: "none" }}
+            width={22}
+            height={22}
+            style={{ height: 22, width: 22, filter: "none" }}
           />
           Puffle
         </Link>
