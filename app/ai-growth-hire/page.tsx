@@ -6,9 +6,9 @@ import MarketingPage, {
   StepList,
 } from "../MarketingPage";
 
-const title = "AI Growth Hire for Founder-Led Teams";
+const title = "Puffle, Your AI Growth Employee";
 const description =
-  "Puffle is the AI growth hire: an AI employee that learns your company and growth goal, decides what work matters next, and executes it.";
+  "Puffle is your AI growth employee: it learns your company and growth goal, decides what work matters next, and executes it.";
 
 export const metadata: Metadata = {
   title,
@@ -103,8 +103,8 @@ const faqs = [
 export default function AiGrowthHirePage() {
   return (
     <MarketingPage
-      eyebrow="AI growth hire"
-      title="Meet your AI growth hire"
+      eyebrow="Your AI growth employee"
+      title="Puffle, your AI growth employee"
       description={description}
       canonicalPath="/ai-growth-hire"
       faqs={faqs}
