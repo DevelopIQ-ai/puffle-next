@@ -47,7 +47,7 @@ export default function Home() {
             />
             <h1>Your AI growth hire.</h1>
             <p className="sauna-home-dek">
-              See how Puffle finds hidden ways to get your company more customers.
+              Drop in your company. Puffle will show you what it can do.
             </p>
             <HeroLeadForm />
           </div>
