@@ -175,7 +175,7 @@ export default function MarketingPage({
 
           <section className="content-bottom-cta">
             <p className="content-eyebrow">Your growth function, compressed</p>
-            <h2>Put an AI employee in charge of growth.</h2>
+            <h2>Keep your growth loop moving.</h2>
             <Link className="btn btn-primary large" href={WAITLIST_URL}>
               Join the waitlist
             </Link>

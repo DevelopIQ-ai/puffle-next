@@ -34,7 +34,7 @@ export default function AboutPage() {
   return (
     <MarketingPage
       eyebrow="About Puffle"
-      title="The AI employee in charge of growth"
+      title="Meet your AI growth hire"
       description={description}
       canonicalPath="/about"
     >
@@ -47,9 +47,9 @@ export default function AboutPage() {
           </p>
           <p>
             The product is built by DevelopIQ Inc. in San Francisco. The goal is
-            simple: let a small team put one AI employee in charge of growth
-            instead of operating a collection of disconnected research, data,
-            and sending tools.
+            simple: let a small team run one continuous growth loop instead of
+            operating a collection of disconnected research, data, and sending
+            tools.
           </p>
         </div>
       </MarketingSection>

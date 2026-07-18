@@ -5973,8 +5973,12 @@ header {
 
 .home-proof-section {
     padding: clamp(76px, 10vw, 132px) 0;
-    background: #171717;
-    color: #f5f5f5;
+    background:
+        linear-gradient(135deg, rgba(65, 105, 225, 0.06), transparent 48%),
+        #f6f7f1;
+    border-top: 1px solid rgba(23, 23, 23, 0.08);
+    border-bottom: 1px solid rgba(23, 23, 23, 0.08);
+    color: #171717;
 }
 
 .home-proof-grid {
@@ -5996,23 +6000,23 @@ header {
 
 .home-proof-copy > p:not(.content-eyebrow) {
     max-width: 570px;
-    color: #bdbdbd;
+    color: #626262;
     font-size: 1.02rem;
     line-height: 1.7;
 }
 
 .home-proof-section .content-eyebrow {
-    color: #94aaff;
+    color: #4169e1;
 }
 
 .home-proof-section .btn-primary {
-    background: #f8f8f4;
-    border-color: #f8f8f4;
-    color: #171717;
+    background: #171717;
+    border-color: #171717;
+    color: #ffffff;
 }
 
 .home-proof-section .content-text-link {
-    color: #d6d6d6;
+    color: #525252;
 }
 
 .home-workflow-list {
@@ -6027,11 +6031,11 @@ header {
     gap: 1rem;
     align-items: center;
     min-height: 74px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+    border-bottom: 1px solid rgba(23, 23, 23, 0.12);
 }
 
 .home-workflow-list li:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    border-top: 1px solid rgba(23, 23, 23, 0.12);
 }
 
 .home-workflow-list span {
@@ -6040,14 +6044,14 @@ header {
     height: 30px;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(148, 170, 255, 0.48);
+    border: 1px solid rgba(65, 105, 225, 0.38);
     border-radius: 50%;
-    color: #94aaff;
+    color: #4169e1;
     font-size: 0.78rem;
 }
 
 .home-workflow-list p {
-    color: #efefef;
+    color: #2f2f2f;
     font-size: 1.04rem;
 }
 
