@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import Footer from "../Footer";
 import Header from "../Header";
 import JsonLd from "../JsonLd";
-import { APP_URL, CONTACT_EMAIL, SITE_URL } from "../site";
+import { CONTACT_EMAIL, SITE_URL, WAITLIST_URL } from "../site";
 
 const title = "Pricing";
 const description =
-  "Hire Puffle, your AI growth employee. Start free with 200 fresh leads; paid plans begin at $100 per month.";
+  "Join the waitlist for Puffle, your AI growth employee. Plans begin with 200 fresh leads and scale with your growth motion.";
 
 export const metadata: Metadata = {
   title,
@@ -37,8 +37,8 @@ const plans: PricingPlan[] = [
     price: "$0",
     note: "200 fresh leads, one-time",
     buttonClassName: "btn btn-outline pricing-btn",
-    cta: "Start free",
-    href: APP_URL,
+    cta: "Join the waitlist",
+    href: WAITLIST_URL,
     featuresLabel: "Includes",
     features: [
       "AI growth strategies",
@@ -53,8 +53,8 @@ const plans: PricingPlan[] = [
     period: "/mo",
     note: "1,000 fresh leads/month",
     buttonClassName: "btn btn-outline pricing-btn",
-    cta: "Choose Starter",
-    href: APP_URL,
+    cta: "Join the waitlist",
+    href: WAITLIST_URL,
     featuresLabel: "Includes",
     features: [
       "Everything in Free",
@@ -73,8 +73,8 @@ const plans: PricingPlan[] = [
     tierClassName: "pricing-tier-pro",
     buttonClassName: "btn btn-primary pricing-btn",
     checkClassName: "pricing-check-pro",
-    cta: "Choose Pro",
-    href: APP_URL,
+    cta: "Join the waitlist",
+    href: WAITLIST_URL,
     featuresLabel: "Includes",
     features: [
       "Everything in Starter",
@@ -125,7 +125,7 @@ export default function Pricing() {
         <div className="pricing-container">
           <h1 className="pricing-title">Pricing</h1>
           <p className="pricing-subtitle">
-            Start free. Upgrade when you need recurring lead volume.
+            Join the waitlist. We&apos;ll let you know when access opens.
           </p>
 
           <div className="pricing-cards">

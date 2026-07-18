@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import HeroDoodles from "./HeroDoodles";
 import HeroLeadForm from "./HeroLeadForm";
 import JsonLd from "./JsonLd";
-import { APP_URL, CORE_WORKFLOW, SITE_DESCRIPTION, SITE_URL } from "./site";
+import { CORE_WORKFLOW, SITE_DESCRIPTION, SITE_URL, WAITLIST_URL } from "./site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -20,7 +20,7 @@ const productSchema = {
   alternateName: "Puffle AI Growth Hire",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  url: APP_URL,
+  url: SITE_URL,
   description: SITE_DESCRIPTION,
   featureList: [
     "Growth strategy",
@@ -29,12 +29,6 @@ const productSchema = {
     "Email and LinkedIn outbound preparation",
     "Sender and reply operations",
   ],
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    description: "Free plan with 200 one-time fresh leads",
-  },
 };
 
 export default function Home() {
@@ -78,9 +72,9 @@ export default function Home() {
                 <Link className="btn btn-primary large" href="/how-it-works">
                   See how your growth hire works
                 </Link>
-                <a className="content-text-link" href={APP_URL}>
-                  Hire Puffle
-                </a>
+                <Link className="content-text-link" href={WAITLIST_URL}>
+                  Join the waitlist
+                </Link>
               </div>
             </div>
             <ol className="home-workflow-list">

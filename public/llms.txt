@@ -30,7 +30,7 @@ Puffle is designed for founder-led and lean GTM teams. It is not a fully autonom
 - [Puffle vs. Clay](https://www.puffle.ai/compare/puffle-vs-clay): product comparison
 - [Pricing](https://www.puffle.ai/pricing): current plans and lead volumes
 - [About](https://www.puffle.ai/about): company facts
-- [Application](https://app.puffle.ai/): Puffle product
+- [Join the waitlist](https://www.puffle.ai/#hero-lead-form): Request early access to Puffle
 - [Documentation](https://docs.puffle.ai/): product documentation
 
 ## Current pricing

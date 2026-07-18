@@ -1,5 +1,5 @@
 export const SITE_URL = "https://www.puffle.ai";
-export const APP_URL = "https://app.puffle.ai";
+export const WAITLIST_URL = "/#hero-lead-form";
 export const DOCS_URL = "https://docs.puffle.ai";
 export const CONTACT_EMAIL = "kush@puffle.ai";
 
