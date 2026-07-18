@@ -1498,16 +1498,9 @@ body:has(.content-page) .content-hero h1 {
   line-height: 1.45;
 }
 
-.sauna-home-prompt {
-  margin: 32px 0 10px;
-  color: rgba(10, 10, 10, 0.68);
-  font-family: var(--font-sans);
-  font-size: 0.86rem;
-  font-weight: 600;
-}
-
 .sauna-home-hero .hero-company-form {
   width: min(490px, calc(100vw - 40px));
+  margin-top: 28px;
 }
 
 .sauna-home-hero .company-link-bar {
@@ -1567,6 +1560,21 @@ body:has(.content-page) .content-hero h1 {
 .sauna-home-hero .company-submit:hover {
   background: #292929;
   transform: translateX(1px);
+}
+
+.sauna-home-hero .hero-form-tease {
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(118, 86, 0, 0.16);
+  border-radius: 10px;
+  background: rgba(255, 245, 199, 0.92);
+  color: #4b3900;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 550;
+  line-height: 1.35;
+  text-align: left;
 }
 
 /* Make every landscape hero readable without losing the image. */
@@ -1656,13 +1664,9 @@ body:has(.legal-page) .navbar-logo {
     font-size: 1.03rem;
   }
 
-  .sauna-home-prompt {
-    margin-top: 28px;
-    font-size: 0.82rem;
-  }
-
   .sauna-home-hero .hero-company-form {
     width: min(350px, calc(100vw - 36px));
+    margin-top: 26px;
   }
 
   .sauna-home-hero .company-link-bar {

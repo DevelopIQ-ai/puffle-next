@@ -34,6 +34,23 @@ const trackingParamNames = [
   "li_fat_id",
 ] as const;
 
+const teasedCompanyDomains = new Set(["x.com", "google.com", "nike.com"]);
+
+function getCompanyDomain(value: string) {
+  const trimmedValue = value.trim().toLowerCase();
+
+  if (!trimmedValue) {
+    return "";
+  }
+
+  try {
+    const url = new URL(trimmedValue.includes("://") ? trimmedValue : `https://${trimmedValue}`);
+    return url.hostname.replace(/^www\./, "").replace(/\.$/, "");
+  } catch {
+    return trimmedValue.replace(/^https?:\/\//, "").split(/[/?#]/, 1)[0].replace(/^www\./, "").replace(/\.$/, "");
+  }
+}
+
 function makeTrackingId(prefix: string) {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
     return `${prefix}_${crypto.randomUUID()}`;
@@ -233,6 +250,7 @@ export default function HeroLeadForm() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [tease, setTease] = useState("");
   const emailInputRef = useRef<HTMLInputElement>(null);
   const pageStartedAtRef = useRef(Date.now());
   const companyFocusedAtRef = useRef<number | null>(null);
@@ -280,8 +298,15 @@ export default function HeroLeadForm() {
   const submitCompany = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError("");
-    setIsSubmitting(true);
+    setTease("");
     companySubmitCountRef.current += 1;
+
+    if (teasedCompanyDomains.has(getCompanyDomain(companyUrl))) {
+      setTease("really?, come on man");
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("/api/landing-leads", {
@@ -419,7 +444,7 @@ export default function HeroLeadForm() {
           id="company-url"
           name="companyUrl"
           type="text"
-          placeholder="your-company.com"
+          placeholder="www.your-company.com"
           title="Use a company domain or URL"
           autoComplete="url"
           autoCapitalize="none"
@@ -433,6 +458,7 @@ export default function HeroLeadForm() {
             companyFirstChangedAtRef.current ??= Date.now();
             companyLastChangedAtRef.current = Date.now();
             setCompanyUrl(event.target.value);
+            setTease("");
           }}
           required
         />
@@ -462,6 +488,7 @@ export default function HeroLeadForm() {
           )}
         </button>
       </div>
+      {tease ? <p className="hero-form-tease" role="status">{tease}</p> : null}
       {error ? <p className="hero-form-error">{error}</p> : null}
     </form>
   );
