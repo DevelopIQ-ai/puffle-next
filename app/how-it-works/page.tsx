@@ -8,7 +8,7 @@ import MarketingPage, {
 
 const title = "How Puffle Works";
 const description =
-  "See how Puffle turns company context into GTM strategies, qualified leads, personalized outbound, sender-safe execution, and organized replies.";
+  "See how your AI growth hire turns company context into growth strategies, qualified leads, personalized outbound, and organized replies.";
 
 export const metadata: Metadata = {
   title,
@@ -67,13 +67,13 @@ export default function HowItWorksPage() {
   return (
     <MarketingPage
       eyebrow="How it works"
-      title="Puffle follows the whole path from strategy to reply"
+      title="Your AI growth hire follows the work from goal to reply"
       description={description}
       canonicalPath="/how-it-works"
     >
       <MarketingSection
         title="The five-step loop"
-        intro="A founder reviews the important decisions. Puffle handles the research and preparation between them."
+        intro="A founder sets direction and reviews important decisions. Puffle handles the growth work between them."
       >
         <StepList items={workflow} />
       </MarketingSection>

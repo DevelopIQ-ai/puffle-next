@@ -7,7 +7,7 @@ import { APP_URL, CONTACT_EMAIL, SITE_URL } from "../site";
 
 const title = "Pricing";
 const description =
-  "Start Puffle free with 200 fresh leads. Paid plans begin at $100 per month for an AI GTM operator, lead discovery, and outbound preparation.";
+  "Hire Puffle, your AI growth employee. Start free with 200 fresh leads; paid plans begin at $100 per month.";
 
 export const metadata: Metadata = {
   title,
@@ -41,7 +41,7 @@ const plans: PricingPlan[] = [
     href: APP_URL,
     featuresLabel: "Includes",
     features: [
-      "AI GTM strategies",
+      "AI growth strategies",
       "Lead discovery and qualification",
       "Personalized outbound preparation",
       "No credit card required",

@@ -36,7 +36,7 @@ export default function Header() {
               Contact
             </a>
             <a href={APP_URL} className="btn btn-primary header-app-link">
-              Try Puffle
+              Hire Puffle
             </a>
           </div>
         </div>

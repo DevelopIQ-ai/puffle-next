@@ -4,6 +4,7 @@ const baseUrl = `https://${host}`;
 
 const paths = [
   "/",
+  "/ai-growth-hire",
   "/ai-gtm-agent",
   "/how-it-works",
   "/founder-led-gtm",

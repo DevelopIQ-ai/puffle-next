@@ -4,7 +4,7 @@ import MarketingPage, { MarketingSection } from "../../MarketingPage";
 
 const title = "Puffle vs. Clay";
 const description =
-  "Compare Puffle's opinionated strategy-to-outbound workflow with Clay's flexible data enrichment and workflow-building approach.";
+  "Compare Puffle, an AI growth hire, with Clay's flexible data enrichment and workflow-building approach.";
 
 export const metadata: Metadata = {
   title,
@@ -29,7 +29,7 @@ export default function PuffleVsClayPage() {
   return (
     <MarketingPage
       eyebrow="Puffle vs. Clay"
-      title="An opinionated GTM operator or a flexible workflow builder?"
+      title="An AI growth hire or a flexible workflow builder?"
       description={description}
       canonicalPath="/compare/puffle-vs-clay"
       faqs={faqs}
@@ -37,10 +37,10 @@ export default function PuffleVsClayPage() {
       <MarketingSection title="The short answer">
         <div className="content-prose">
           <p>
-            Puffle is for teams that want one agent to reason from a GTM goal to
-            a strategy, qualified audience, and outbound campaign. Clay is for
-            teams that want a flexible canvas for assembling data enrichment and
-            GTM workflows.
+            Puffle is for teams that want an AI employee to reason from a growth
+            goal to a strategy, qualified audience, and outbound campaign. Clay
+            is for teams that want a flexible canvas for assembling data
+            enrichment and GTM workflows.
           </p>
           <p>
             The products overlap around lead data and enrichment, but the default

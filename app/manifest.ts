@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Puffle",
     short_name: "Puffle",
     description:
-      "AI GTM operator for strategy, lead discovery, qualification, and personalized outbound.",
+      "The AI growth hire for strategy, lead discovery, qualification, and personalized outbound.",
     start_url: "/",
     display: "standalone",
     background_color: "#fcfef8",

@@ -84,7 +84,7 @@ export default function MarketingPage({
   canonicalPath,
   children,
   faqs = [],
-  primaryCta = "Try Puffle free",
+  primaryCta = "Hire Puffle",
 }: MarketingPageProps) {
   const pageUrl = `${SITE_URL}${canonicalPath}`;
   const structuredData: Record<string, unknown>[] = [
@@ -174,10 +174,10 @@ export default function MarketingPage({
           ) : null}
 
           <section className="content-bottom-cta">
-            <p className="content-eyebrow">Turn strategy into action</p>
-            <h2>Give Puffle your company. Get the next GTM move.</h2>
+            <p className="content-eyebrow">Your growth function, compressed</p>
+            <h2>Put an AI employee in charge of growth.</h2>
             <a className="btn btn-primary large" href={APP_URL}>
-              Try Puffle free
+              Hire Puffle
             </a>
           </section>
         </article>

@@ -4,6 +4,7 @@ import { SITE_URL } from "./site";
 
 const pages = [
   { path: "", priority: 1, changeFrequency: "weekly" },
+  { path: "/ai-growth-hire", priority: 0.95, changeFrequency: "weekly" },
   { path: "/ai-gtm-agent", priority: 0.9, changeFrequency: "weekly" },
   { path: "/how-it-works", priority: 0.9, changeFrequency: "weekly" },
   { path: "/founder-led-gtm", priority: 0.8, changeFrequency: "monthly" },

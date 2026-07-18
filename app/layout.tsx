@@ -29,7 +29,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Puffle | AI GTM Operator for Founder-Led Teams",
+    default: "Puffle | The AI Growth Hire",
     template: "%s | Puffle",
   },
   description: SITE_DESCRIPTION,
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Puffle | AI GTM Operator for Founder-Led Teams",
+    title: "Puffle | The AI Growth Hire",
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Puffle | AI GTM Operator for Founder-Led Teams",
+    title: "Puffle | The AI Growth Hire",
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -71,6 +71,11 @@ const organizationSchema = {
   "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
+  alternateName: [
+    "Puffle AI Growth Hire",
+    "Puffle AI Growth Employee",
+    "Puffle Growth Agent",
+  ],
   legalName: LEGAL_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/puffle-logo.svg`,
