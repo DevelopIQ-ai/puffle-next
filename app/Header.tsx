@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { APP_URL, CONTACT_EMAIL, PRIMARY_NAVIGATION } from "./site";
+import { CONTACT_EMAIL, PRIMARY_NAVIGATION, WAITLIST_URL } from "./site";
 
 export default function Header() {
   return (
@@ -35,9 +35,9 @@ export default function Header() {
             <a href={`mailto:${CONTACT_EMAIL}`} className="top-nav-link header-contact-link">
               Contact
             </a>
-            <a href={APP_URL} className="btn btn-primary header-app-link">
-              Hire Puffle
-            </a>
+            <Link href={WAITLIST_URL} className="btn btn-primary header-app-link">
+              Join the waitlist
+            </Link>
           </div>
         </div>
       </div>

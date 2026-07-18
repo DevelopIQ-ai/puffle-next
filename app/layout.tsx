@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Outfit } from "next/font/google";
+import { Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import JsonLd from "./JsonLd";
 import {
-  APP_URL,
   CONTACT_EMAIL,
   LEGAL_NAME,
   SITE_DESCRIPTION,
@@ -19,11 +18,6 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
-});
-
-const outfit = Outfit({
-  variable: "--font-sans",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -89,7 +83,7 @@ const organizationSchema = {
     "@type": "ContactPoint",
     contactType: "sales",
     email: CONTACT_EMAIL,
-    url: APP_URL,
+    url: `${SITE_URL}/#hero-lead-form`,
   },
 };
 
@@ -100,7 +94,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSerif.variable} ${outfit.variable}`}>
+      <body className={instrumentSerif.variable}>
         <JsonLd data={organizationSchema} />
         {children}
         <Analytics />

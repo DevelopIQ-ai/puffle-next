@@ -3,7 +3,7 @@ import Link from "next/link";
 import Footer from "./Footer";
 import Header from "./Header";
 import JsonLd from "./JsonLd";
-import { APP_URL, SITE_NAME, SITE_URL } from "./site";
+import { SITE_NAME, SITE_URL, WAITLIST_URL } from "./site";
 
 type Faq = {
   question: string;
@@ -84,7 +84,7 @@ export default function MarketingPage({
   canonicalPath,
   children,
   faqs = [],
-  primaryCta = "Hire Puffle",
+  primaryCta = "Join the waitlist",
 }: MarketingPageProps) {
   const pageUrl = `${SITE_URL}${canonicalPath}`;
   const structuredData: Record<string, unknown>[] = [
@@ -146,9 +146,9 @@ export default function MarketingPage({
             <h1>{title}</h1>
             <p className="content-dek">{description}</p>
             <div className="content-actions">
-              <a className="btn btn-primary large" href={APP_URL}>
+              <Link className="btn btn-primary large" href={WAITLIST_URL}>
                 {primaryCta}
-              </a>
+              </Link>
               <Link className="content-text-link" href="/how-it-works">
                 See how it works
               </Link>
@@ -176,9 +176,9 @@ export default function MarketingPage({
           <section className="content-bottom-cta">
             <p className="content-eyebrow">Your growth function, compressed</p>
             <h2>Put an AI employee in charge of growth.</h2>
-            <a className="btn btn-primary large" href={APP_URL}>
-              Hire Puffle
-            </a>
+            <Link className="btn btn-primary large" href={WAITLIST_URL}>
+              Join the waitlist
+            </Link>
           </section>
         </article>
       </main>
