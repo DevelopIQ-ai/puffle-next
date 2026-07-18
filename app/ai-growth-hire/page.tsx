@@ -9,7 +9,7 @@ import MarketingPage, {
 
 const title = "Puffle, Your AI Growth Employee";
 const description =
-  "Give Puffle your company and a goal. It finds the next move, the right people, and an outbound campaign ready for your approval.";
+  "Give Puffle your company and a goal. Get the next move, the right people, and a campaign ready to go.";
 
 export const metadata: Metadata = {
   title,
@@ -119,6 +119,8 @@ export default function AiGrowthHirePage() {
       description={description}
       canonicalPath="/ai-growth-hire"
       faqs={faqs}
+      heroClassName="ai-growth-hero"
+      showSecondaryCta={false}
     >
       <MarketingSection
         title="What Puffle does next."

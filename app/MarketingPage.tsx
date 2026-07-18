@@ -18,6 +18,8 @@ type MarketingPageProps = {
   children: React.ReactNode;
   faqs?: readonly Faq[];
   primaryCta?: string;
+  heroClassName?: string;
+  showSecondaryCta?: boolean;
 };
 
 export function MarketingSection({
@@ -85,6 +87,8 @@ export default function MarketingPage({
   children,
   faqs = [],
   primaryCta = "Join the waitlist",
+  heroClassName,
+  showSecondaryCta = true,
 }: MarketingPageProps) {
   const pageUrl = `${SITE_URL}${canonicalPath}`;
   const structuredData: Record<string, unknown>[] = [
@@ -141,7 +145,7 @@ export default function MarketingPage({
       <Header />
       <main className="content-page">
         <article className="content-shell">
-          <header className="content-hero">
+          <header className={`content-hero${heroClassName ? ` ${heroClassName}` : ""}`}>
             <p className="content-eyebrow">{eyebrow}</p>
             <h1>{title}</h1>
             <p className="content-dek">{description}</p>
@@ -149,9 +153,11 @@ export default function MarketingPage({
               <Link className="btn btn-primary large" href={WAITLIST_URL}>
                 {primaryCta}
               </Link>
-              <Link className="content-text-link" href="/how-it-works">
-                See how it works
-              </Link>
+              {showSecondaryCta ? (
+                <Link className="content-text-link" href="/how-it-works">
+                  See how it works
+                </Link>
+              ) : null}
             </div>
           </header>
 
