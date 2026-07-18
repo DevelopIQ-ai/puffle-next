@@ -1598,6 +1598,10 @@ body:has(.content-page) .logo,
 body:has(.pricing-page) .logo,
 body:has(.legal-page) .logo {
   gap: 7px;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
 }
 
 body:has(.home-page) .navbar-logo,
