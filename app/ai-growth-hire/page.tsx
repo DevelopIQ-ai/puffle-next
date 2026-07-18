@@ -9,7 +9,7 @@ import MarketingPage, {
 
 const title = "Puffle, Your AI Growth Employee";
 const description =
-  "Puffle is an AI growth employee for founder-led teams. Add your company and growth goal; it learns the context, decides what work matters next, finds and qualifies the right people, and prepares email and LinkedIn outbound for your approval.";
+  "Give Puffle your company and a goal. It finds the next move, the right people, and an outbound campaign ready for your approval.";
 
 export const metadata: Metadata = {
   title,
@@ -114,15 +114,15 @@ const faqs = [
 export default function AiGrowthHirePage() {
   return (
     <MarketingPage
-      eyebrow="Your AI growth employee"
-      title="Puffle, your AI growth employee"
+      eyebrow="Puffle"
+      title="Your AI growth employee."
       description={description}
       canonicalPath="/ai-growth-hire"
       faqs={faqs}
     >
       <MarketingSection
-        title="What happens after you add your company"
-        intro="Puffle behaves like a growth generalist: it turns company context and a goal into completed growth work, not a disconnected set of AI features."
+        title="What Puffle does next."
+        intro="Your company and goal become a focused plan, the right audience, and outbound ready for approval."
       >
         <StepList items={workflow} />
       </MarketingSection>
