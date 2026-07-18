@@ -89,6 +89,15 @@ export default function PuffleVsClayPage() {
             </tbody>
           </table>
         </div>
+        <p className="content-source-note">
+          Clay product facts checked against its official{" "}
+          <a href="https://university.clay.com/docs/enrichments">enrichment</a>
+          {" "}and{" "}
+          <a href="https://university.clay.com/docs/email-sequencer">
+            email sequencer
+          </a>{" "}
+          documentation on July 17, 2026.
+        </p>
       </MarketingSection>
     </MarketingPage>
   );

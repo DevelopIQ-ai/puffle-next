@@ -6255,6 +6255,19 @@ header {
     font-weight: 650;
 }
 
+.content-source-note {
+    margin-top: 1rem;
+    color: #737373;
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+
+.content-source-note a {
+    color: #4169e1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .content-bottom-cta {
     margin: clamp(68px, 9vw, 112px) 0;
     padding: clamp(42px, 7vw, 72px);
