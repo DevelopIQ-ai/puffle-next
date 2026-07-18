@@ -1466,6 +1466,7 @@ body:has(.home-page) .header-app-link {
   width: min(760px, 100%);
   flex-direction: column;
   align-items: center;
+  transform: translateY(-30px);
 }
 
 .sauna-home-logo {
@@ -1489,13 +1490,14 @@ body:has(.content-page) .content-hero h1 {
 }
 
 .sauna-home-dek {
-  max-width: 620px;
+  max-width: none;
   margin: 24px auto 0;
   color: #151515;
   font-family: var(--font-sans);
-  font-size: clamp(1.08rem, 1.7vw, 1.32rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.22rem);
   font-weight: 500;
   line-height: 1.45;
+  white-space: nowrap;
 }
 
 .sauna-home-hero .hero-company-form {
@@ -1658,10 +1660,15 @@ body:has(.legal-page) .navbar-logo {
     margin-bottom: 20px;
   }
 
+  .sauna-home-copy {
+    transform: translateY(-18px);
+  }
+
   .sauna-home-dek {
     max-width: 340px;
     margin-top: 20px;
     font-size: 1.03rem;
+    white-space: normal;
   }
 
   .sauna-home-hero .hero-company-form {
