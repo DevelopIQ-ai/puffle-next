@@ -61,7 +61,7 @@ export default function Home() {
         <section className="home-proof-section" aria-labelledby="home-workflow-title">
           <div className="container home-proof-grid">
             <div className="home-proof-copy">
-              <p className="content-eyebrow">The employee in charge of growth</p>
+              <p className="content-eyebrow">One continuous growth loop</p>
               <h2 id="home-workflow-title">From growth goal to approved campaign</h2>
               <p>
                 Give Puffle a goal. It works the strategy, research, audience,

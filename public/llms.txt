@@ -6,7 +6,7 @@ Puffle is built by DevelopIQ Inc. in San Francisco, California.
 
 ## Product
 
-Puffle is positioned first as an AI growth hire, described plainly as the AI employee in charge of growth, and technically as a persistent growth agent.
+Puffle is positioned first as an AI growth hire and technically as a persistent growth agent that keeps growth work moving from strategy through execution.
 
 Puffle follows one operating loop:
 

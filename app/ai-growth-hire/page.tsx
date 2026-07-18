@@ -86,7 +86,7 @@ const faqs = [
   {
     question: "Is an AI growth hire the same as a growth agent?",
     answer:
-      "A growth agent describes the technology. AI growth hire describes the job it does for the company: the employee in charge of growth work.",
+      "A growth agent describes the technology. AI growth hire describes the role it plays: a persistent operator across strategy, research, leads, and campaigns.",
   },
   {
     question: "Does Puffle replace founder judgment?",
@@ -104,7 +104,7 @@ export default function AiGrowthHirePage() {
   return (
     <MarketingPage
       eyebrow="AI growth hire"
-      title="Put an AI employee in charge of growth"
+      title="Meet your AI growth hire"
       description={description}
       canonicalPath="/ai-growth-hire"
       faqs={faqs}

@@ -41,7 +41,7 @@ export default function OpenGraphImage() {
             The AI growth hire for founder-led teams
           </div>
           <div style={{ fontSize: "31px", color: "#4169e1" }}>
-            The AI employee in charge of growth
+            Strategy, research, leads, and outbound
           </div>
         </div>
       </div>
