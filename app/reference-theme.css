@@ -1333,3 +1333,336 @@ body:has(.legal-page) footer {
     transition: none !important;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* Unified Sauna direction                                                     */
+/* -------------------------------------------------------------------------- */
+
+body:has(.home-page) {
+  overflow-x: hidden;
+  background: var(--reference-stone);
+  color: var(--reference-ink);
+}
+
+body:has(.home-page) header {
+  height: 80px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+body:has(.home-page) .header-container {
+  max-width: none;
+  padding: 0 32px;
+}
+
+body:has(.home-page) .logo {
+  gap: 0;
+  color: #0a0a0a;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+body:has(.home-page) .navbar-logo {
+  display: none;
+}
+
+body:has(.home-page) .header-actions {
+  gap: 12px;
+}
+
+body:has(.home-page) .header-actions nav {
+  position: absolute;
+  left: 50%;
+  display: block;
+  transform: translateX(-50%);
+}
+
+body:has(.home-page) .header-actions nav > ul {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.6);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+body:has(.home-page) .header-actions nav a {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 0 13px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+body:has(.home-page) .header-actions nav a:hover {
+  background: rgba(255, 255, 255, 0.13);
+  color: white;
+}
+
+body:has(.home-page) .header-contact-link {
+  min-height: 34px;
+  padding: 0 13px;
+  border: 0;
+  background: transparent;
+  color: #222;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+}
+
+body:has(.home-page) .header-app-link {
+  min-height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #0a0a0a;
+  color: white;
+  font-size: 0.74rem;
+}
+
+.home-page {
+  min-height: 100vh;
+  color: var(--reference-ink);
+}
+
+.sauna-home-hero {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  min-height: 100svh;
+  padding: 140px 24px 120px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.38)),
+    url("/bg-landing-page.png") center center / cover no-repeat;
+  text-align: center;
+}
+
+.sauna-home-hero::after,
+.content-hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 54% 43% at 50% 39%,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.82) 38%,
+    rgba(255, 255, 255, 0.28) 72%,
+    transparent 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.sauna-home-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(760px, 100%);
+  flex-direction: column;
+  align-items: center;
+}
+
+.sauna-home-copy h1,
+.content-hero h1,
+body:has(.content-page) .content-hero h1 {
+  max-width: 860px;
+  margin: 0;
+  color: #0a0a0a;
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 6vw, 5.8rem);
+  font-weight: 400;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.sauna-home-dek {
+  max-width: 620px;
+  margin: 24px auto 0;
+  color: #151515;
+  font-family: var(--font-sans);
+  font-size: clamp(1.08rem, 1.7vw, 1.32rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.sauna-home-prompt {
+  margin: 34px 0 12px;
+  color: #171717;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.sauna-home-hero .hero-company-form {
+  width: min(560px, calc(100vw - 40px));
+}
+
+.sauna-home-hero .company-link-bar {
+  width: 100%;
+  height: 66px;
+  padding: 0 8px 0 24px;
+  border: 2px solid #0a0a0a;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow:
+    0 18px 46px rgba(18, 25, 36, 0.2),
+    0 2px 0 rgba(10, 10, 10, 0.18);
+  transform: none;
+}
+
+.sauna-home-hero .company-link-bar:focus-within {
+  border-color: #0a0a0a;
+  background: white;
+  box-shadow:
+    0 21px 52px rgba(18, 25, 36, 0.24),
+    0 2px 0 rgba(10, 10, 10, 0.2);
+  transform: translateY(-1px);
+}
+
+.sauna-home-hero .company-link-bar input {
+  color: #0a0a0a;
+  font-family: var(--font-sans);
+  font-size: 1.02rem;
+  font-weight: 650;
+}
+
+.sauna-home-hero .company-link-bar input::placeholder {
+  color: #777;
+}
+
+.sauna-home-hero .company-submit {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background: #0a0a0a;
+  color: white;
+  box-shadow: none;
+  transform: none;
+}
+
+.sauna-home-hero .company-submit:hover {
+  background: #292929;
+  transform: translateX(1px);
+}
+
+.sauna-home-waitlist {
+  margin-top: 20px;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.3);
+  color: #171717;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 550;
+  line-height: 1.5;
+}
+
+/* Make every landscape hero readable without losing the image. */
+.content-hero,
+body:has(.content-page) .content-hero {
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.38)),
+    url("/bg-landing-page.png") center center / cover no-repeat;
+}
+
+.content-dek,
+body:has(.content-page) .content-dek {
+  color: #171717;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  body:has(.home-page) .header-actions nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  body:has(.home-page) header {
+    height: 68px;
+  }
+
+  body:has(.home-page) .header-container {
+    padding: 0 18px;
+  }
+
+  body:has(.home-page) .header-contact-link {
+    display: none;
+  }
+
+  body:has(.home-page) .header-app-link {
+    min-height: 34px;
+    padding: 0 13px;
+    font-size: 0.68rem;
+  }
+
+  .sauna-home-hero {
+    min-height: 100svh;
+    padding: 112px 18px 88px;
+    background-position: 43% center;
+  }
+
+  .sauna-home-hero::after,
+  .content-hero::after {
+    background: radial-gradient(
+      ellipse 92% 42% at 50% 36%,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.82) 40%,
+      rgba(255, 255, 255, 0.28) 74%,
+      transparent 100%
+    );
+  }
+
+  .sauna-home-copy h1,
+  .content-hero h1,
+  body:has(.content-page) .content-hero h1 {
+    max-width: 360px;
+    font-size: clamp(3.3rem, 15vw, 4.15rem);
+    line-height: 0.94;
+  }
+
+  .sauna-home-dek {
+    max-width: 340px;
+    margin-top: 20px;
+    font-size: 1.03rem;
+  }
+
+  .sauna-home-prompt {
+    margin-top: 30px;
+    font-size: 0.87rem;
+  }
+
+  .sauna-home-hero .hero-company-form {
+    width: min(350px, calc(100vw - 30px));
+  }
+
+  .sauna-home-hero .company-link-bar {
+    height: 60px;
+    padding-left: 19px;
+  }
+
+  .sauna-home-hero .company-link-bar input {
+    font-size: 0.93rem;
+  }
+
+  .sauna-home-hero .company-submit {
+    width: 44px;
+    height: 44px;
+  }
+
+  .content-hero,
+  body:has(.content-page) .content-hero {
+    background-position: 43% center;
+  }
+}

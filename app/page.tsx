@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
-import GrowthEmployeePreview from "./GrowthEmployeePreview";
+import Header from "./Header";
 import HeroLeadForm from "./HeroLeadForm";
 import JsonLd from "./JsonLd";
 import { SITE_DESCRIPTION, SITE_URL, WAITLIST_URL } from "./site";
@@ -34,33 +33,19 @@ export default function Home() {
   return (
     <>
       <JsonLd data={productSchema} />
+      <Header />
       <main className="home-page">
-        <section className="figment-home">
-          <Link className="figment-home-brand" href="/" aria-label="Puffle home">
-            Puffle
-          </Link>
-
-          <div className="figment-home-hero">
-            <Image
-              className="figment-home-mark"
-              src="/puffle-logo.svg"
-              alt=""
-              width={82}
-              height={82}
-              priority
-            />
-            <h1>
-              Puffle finds <em>hidden</em> ways<br className="figment-desktop-break" /> to get you customers.
-            </h1>
-            <p className="figment-home-prompt">See what it finds for you</p>
+        <section className="sauna-home-hero">
+          <div className="sauna-home-copy">
+            <h1>Your AI growth hire.</h1>
+            <p className="sauna-home-dek">
+              Puffle finds the hidden ways to get you customers.
+            </p>
+            <p className="sauna-home-prompt">See what it finds for your company</p>
             <HeroLeadForm />
-            <Link className="figment-home-waitlist" href={WAITLIST_URL}>
+            <Link className="sauna-home-waitlist" href={WAITLIST_URL}>
               Join the waitlist
             </Link>
-          </div>
-
-          <div className="figment-home-product">
-            <GrowthEmployeePreview />
           </div>
         </section>
       </main>
