@@ -4,7 +4,7 @@ import MarketingPage, { CardGrid, MarketingSection } from "../MarketingPage";
 
 const title = "About Puffle";
 const description =
-  "Puffle is an AI GTM operator built in San Francisco for founder-led teams that need a repeatable path from strategy to outbound.";
+  "Puffle is the AI growth hire, built in San Francisco for founder-led teams that need a repeatable path from a growth goal to execution.";
 
 export const metadata: Metadata = {
   title,
@@ -34,26 +34,26 @@ export default function AboutPage() {
   return (
     <MarketingPage
       eyebrow="About Puffle"
-      title="A GTM operator for teams that cannot afford a fragmented stack"
+      title="The AI employee in charge of growth"
       description={description}
       canonicalPath="/about"
     >
       <MarketingSection title="What Puffle is">
         <div className="content-prose">
           <p>
-            Puffle is software for founder-led go-to-market. It turns company
-            context into focused growth strategies, finds and qualifies the right
-            people, and prepares personalized outreach across email and LinkedIn.
+            Puffle is an AI growth hire for founder-led teams. Give it your
+            company and growth goal; it decides what work matters next, finds and
+            qualifies the right people, and prepares personalized outreach.
           </p>
           <p>
             The product is built by DevelopIQ Inc. in San Francisco. The goal is
-            simple: give a small team one operating loop for finding customers
-            instead of a collection of disconnected research, data, and sending
-            tools.
+            simple: let a small team put one AI employee in charge of growth
+            instead of operating a collection of disconnected research, data,
+            and sending tools.
           </p>
         </div>
       </MarketingSection>
-      <MarketingSection title="How we think about GTM">
+      <MarketingSection title="How we think about growth work">
         <CardGrid items={principles} />
       </MarketingSection>
     </MarketingPage>

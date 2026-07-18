@@ -5918,6 +5918,11 @@ footer {
 }
 
 /* Public product and discovery pages */
+body:has(.content-page),
+body:has(.pricing-page) {
+    --font-sans: var(--font-comic);
+}
+
 header {
     background: rgba(252, 254, 248, 0.88);
     border-bottom: 1px solid rgba(23, 23, 23, 0.07);

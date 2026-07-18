@@ -17,10 +17,18 @@ const productSchema = {
   "@type": "SoftwareApplication",
   "@id": `${SITE_URL}/#product`,
   name: "Puffle",
+  alternateName: "Puffle AI Growth Hire",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: APP_URL,
   description: SITE_DESCRIPTION,
+  featureList: [
+    "Growth strategy",
+    "Market research",
+    "Lead discovery and qualification",
+    "Email and LinkedIn outbound preparation",
+    "Sender and reply operations",
+  ],
   offers: {
     "@type": "Offer",
     price: "0",
@@ -48,9 +56,9 @@ export default function Home() {
               <p className="subheadline">See what it finds for you</p>
               <HeroLeadForm />
               <p className="hero-explainer">
-                Puffle is an AI GTM operator for founder-led teams. It turns your
-                company context into focused strategies, qualified leads, and
-                personalized outbound across email and LinkedIn.
+                Puffle is your AI growth hire: an AI employee that learns your
+                company, decides what growth work matters next, and turns it into
+                strategies, qualified leads, and personalized outbound.
               </p>
             </div>
           </div>
@@ -59,19 +67,19 @@ export default function Home() {
         <section className="home-proof-section" aria-labelledby="home-workflow-title">
           <div className="container home-proof-grid">
             <div className="home-proof-copy">
-              <p className="content-eyebrow">One operating loop</p>
-              <h2 id="home-workflow-title">From GTM question to approved campaign</h2>
+              <p className="content-eyebrow">The employee in charge of growth</p>
+              <h2 id="home-workflow-title">From growth goal to approved campaign</h2>
               <p>
-                Puffle does the research and preparation work that normally gets
-                split across strategy docs, lead tools, enrichers, and sequencers.
-                You review the plan before anything launches.
+                Give Puffle a goal. It works the strategy, research, audience,
+                and campaign that normally get split across five different tools.
+                You review the important decisions before anything launches.
               </p>
               <div className="content-actions">
                 <Link className="btn btn-primary large" href="/how-it-works">
-                  See how it works
+                  See how your growth hire works
                 </Link>
                 <a className="content-text-link" href={APP_URL}>
-                  Try Puffle free
+                  Hire Puffle
                 </a>
               </div>
             </div>

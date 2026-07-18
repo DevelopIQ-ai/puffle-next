@@ -4,7 +4,7 @@ import MarketingPage, { CardGrid, MarketingSection } from "../MarketingPage";
 
 const title = "Founder-Led GTM Software";
 const description =
-  "Puffle helps founders turn market knowledge into focused growth strategies, qualified leads, and personalized outbound without building a large GTM stack.";
+  "Puffle is the AI growth hire for founders: it turns market knowledge into focused strategies, qualified leads, and personalized outbound.";
 
 export const metadata: Metadata = {
   title,
@@ -47,7 +47,7 @@ export default function FounderLedGtmPage() {
   return (
     <MarketingPage
       eyebrow="Founder-led GTM"
-      title="Keep founder judgment. Lose the manual GTM busywork."
+      title="Keep founder judgment. Hire out the growth busywork."
       description={description}
       canonicalPath="/founder-led-gtm"
       faqs={faqs}
