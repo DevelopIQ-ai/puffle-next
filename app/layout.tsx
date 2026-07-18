@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
+import "./reference-theme.css";
 import JsonLd from "./JsonLd";
 import {
   CONTACT_EMAIL,
