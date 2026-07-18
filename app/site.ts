@@ -6,7 +6,7 @@ export const CONTACT_EMAIL = "kush@puffle.ai";
 export const SITE_NAME = "Puffle";
 export const LEGAL_NAME = "DevelopIQ Inc.";
 export const SITE_DESCRIPTION =
-  "Puffle is the AI growth hire for founder-led teams: an AI employee that learns your company, decides what growth work matters next, and executes it.";
+  "Puffle is the AI growth employee for founder-led teams: an AI employee that learns your company, decides what growth work matters next, and executes it.";
 
 export const PRIMARY_NAVIGATION = [
   { href: "/", label: "Home" },

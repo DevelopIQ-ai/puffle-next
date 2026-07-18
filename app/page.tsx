@@ -16,7 +16,7 @@ const productSchema = {
   "@type": "SoftwareApplication",
   "@id": `${SITE_URL}/#product`,
   name: "Puffle",
-  alternateName: "Puffle AI Growth Hire",
+  alternateName: "Puffle AI Growth Employee",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   url: SITE_URL,
@@ -46,7 +46,7 @@ export default function Home() {
               height={72}
               priority
             />
-            <h1>Your AI growth hire.</h1>
+            <h1>Your AI growth employee.</h1>
             <p className="sauna-home-dek">
               Drop in your company. Puffle will show you what it can do.
             </p>

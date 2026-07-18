@@ -1,12 +1,12 @@
 # Puffle
 
-> Puffle is the AI growth hire for founder-led teams: an AI employee that learns the company, decides what growth work matters next, and executes it.
+> Puffle is the AI growth employee for founder-led teams: an AI employee that learns the company, decides what growth work matters next, and executes it.
 
 Puffle is built by DevelopIQ Inc. in San Francisco, California.
 
 ## Product
 
-Puffle is positioned first as an AI growth hire and technically as a persistent growth agent that keeps growth work moving from strategy through execution.
+Puffle is positioned first as an AI growth employee and technically as a persistent growth agent that keeps growth work moving from strategy through execution.
 
 Puffle follows one operating loop:
 
@@ -22,7 +22,7 @@ Puffle is designed for founder-led and lean GTM teams. It is not a fully autonom
 ## Canonical pages
 
 - [Homepage](https://www.puffle.ai/): official Puffle website
-- [AI growth hire](https://www.puffle.ai/ai-growth-hire): primary product position and responsibilities
+- [AI growth employee](https://www.puffle.ai/ai-growth-hire): primary product position and responsibilities
 - [AI GTM agent](https://www.puffle.ai/ai-gtm-agent): product definition and capabilities
 - [How Puffle works](https://www.puffle.ai/how-it-works): end-to-end workflow
 - [Founder-led GTM](https://www.puffle.ai/founder-led-gtm): target customer and use cases

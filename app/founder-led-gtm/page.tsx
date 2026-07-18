@@ -4,7 +4,7 @@ import MarketingPage, { CardGrid, MarketingSection } from "../MarketingPage";
 
 const title = "Founder-Led GTM Software";
 const description =
-  "Puffle is the AI growth hire for founders: it turns market knowledge into focused strategies, qualified leads, and personalized outbound.";
+  "Puffle is the AI growth employee for founders: it turns market knowledge into focused strategies, qualified leads, and personalized outbound.";
 
 export const metadata: Metadata = {
   title,

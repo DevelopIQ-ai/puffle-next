@@ -24,7 +24,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Puffle | The AI Growth Hire",
+    default: "Puffle | The AI Growth Employee",
     template: "%s | Puffle",
   },
   description: SITE_DESCRIPTION,
@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Puffle | The AI Growth Hire",
+    title: "Puffle | The AI Growth Employee",
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Puffle | The AI Growth Hire",
+    title: "Puffle | The AI Growth Employee",
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -67,7 +67,6 @@ const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   alternateName: [
-    "Puffle AI Growth Hire",
     "Puffle AI Growth Employee",
     "Puffle Growth Agent",
   ],

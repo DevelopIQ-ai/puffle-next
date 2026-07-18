@@ -4,7 +4,7 @@ import MarketingPage, { MarketingSection } from "../../MarketingPage";
 
 const title = "Puffle vs. Clay";
 const description =
-  "Compare Puffle, an AI growth hire, with Clay's flexible data enrichment and workflow-building approach.";
+  "Compare Puffle, an AI growth employee, with Clay's flexible data enrichment and workflow-building approach.";
 
 export const metadata: Metadata = {
   title,
@@ -29,7 +29,7 @@ export default function PuffleVsClayPage() {
   return (
     <MarketingPage
       eyebrow="Puffle vs. Clay"
-      title="An AI growth hire or a flexible workflow builder?"
+      title="An AI growth employee or a flexible workflow builder?"
       description={description}
       canonicalPath="/compare/puffle-vs-clay"
       faqs={faqs}

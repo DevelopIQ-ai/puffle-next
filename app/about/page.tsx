@@ -4,7 +4,7 @@ import MarketingPage, { CardGrid, MarketingSection } from "../MarketingPage";
 
 const title = "About Puffle";
 const description =
-  "Puffle is the AI growth hire, built in San Francisco for founder-led teams that need a repeatable path from a growth goal to execution.";
+  "Puffle is the AI growth employee, built in San Francisco for founder-led teams that need a repeatable path from a growth goal to execution.";
 
 export const metadata: Metadata = {
   title,
@@ -34,14 +34,14 @@ export default function AboutPage() {
   return (
     <MarketingPage
       eyebrow="About Puffle"
-      title="Meet your AI growth hire"
+      title="Meet your AI growth employee"
       description={description}
       canonicalPath="/about"
     >
       <MarketingSection title="What Puffle is">
         <div className="content-prose">
           <p>
-            Puffle is an AI growth hire for founder-led teams. Give it your
+            Puffle is an AI growth employee for founder-led teams. Give it your
             company and growth goal; it decides what work matters next, finds and
             qualifies the right people, and prepares personalized outreach.
           </p>

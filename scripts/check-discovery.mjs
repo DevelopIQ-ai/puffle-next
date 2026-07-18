@@ -4,8 +4,8 @@ const baseUrl = (process.env.PUFFLE_SITE_URL || "https://www.puffle.ai").replace
 );
 
 const pageChecks = [
-  ["/", "AI Growth Hire"],
-  ["/ai-growth-hire", "AI Growth Hire"],
+  ["/", "AI Growth Employee"],
+  ["/ai-growth-hire", "AI Growth Employee"],
   ["/ai-gtm-agent", "AI GTM Agent"],
   ["/how-it-works", "How Puffle Works"],
   ["/founder-led-gtm", "Founder-Led GTM"],
