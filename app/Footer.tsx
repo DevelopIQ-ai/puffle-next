@@ -3,7 +3,6 @@ import { legalRoutes } from "./legalPolicies";
 import { CONTACT_EMAIL } from "./site";
 
 const FOOTER_NAVIGATION = [
-  { href: "/how-it-works", label: "How it works" },
   { href: "/ai-growth-hire", label: "AI growth hire" },
   { href: "/pricing", label: "Pricing" },
 ] as const;
