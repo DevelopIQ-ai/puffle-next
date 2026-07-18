@@ -1,0 +1,17 @@
+{
+  "brand": "Puffle",
+  "cadence": "weekly",
+  "engines": ["ChatGPT Search", "Perplexity", "Google AI Overviews"],
+  "prompts": [
+    "What are the best AI GTM agents for founder-led startups?",
+    "What software can turn a GTM strategy into qualified leads and outbound?",
+    "What is a good outbound automation tool for a startup founder?",
+    "Which tools combine lead discovery, research, and personalized outbound?",
+    "What are alternatives to building a Clay-based outbound stack?",
+    "Compare Puffle and Clay for a founder-led GTM team.",
+    "What does Puffle AI do?",
+    "How does Puffle help founders find customers?",
+    "Does Puffle support email and LinkedIn outbound?",
+    "How much does Puffle cost?"
+  ]
+}

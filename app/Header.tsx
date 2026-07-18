@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { APP_URL, CONTACT_EMAIL, PRIMARY_NAVIGATION } from "./site";
+
 export default function Header() {
   return (
     <header>
@@ -19,13 +21,24 @@ export default function Header() {
           />
           Puffle
         </Link>
-        <div className="header-actions header-actions-simple">
-          <a
-            href="mailto:kush@puffle.ai"
-            className="top-nav-link"
-          >
-            Contact
-          </a>
+        <div className="header-actions">
+          <nav aria-label="Primary navigation">
+            <ul>
+              {PRIMARY_NAVIGATION.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div className="nav-cta">
+            <a href={`mailto:${CONTACT_EMAIL}`} className="top-nav-link header-contact-link">
+              Contact
+            </a>
+            <a href={APP_URL} className="btn btn-primary header-app-link">
+              Try Puffle
+            </a>
+          </div>
         </div>
       </div>
     </header>

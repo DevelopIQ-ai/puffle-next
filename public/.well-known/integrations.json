@@ -1,0 +1,23 @@
+{
+  "name": "Puffle",
+  "legal_name": "DevelopIQ Inc.",
+  "canonical_url": "https://www.puffle.ai",
+  "application_url": "https://app.puffle.ai",
+  "documentation_url": "https://docs.puffle.ai",
+  "description": "Puffle is an AI GTM operator for founder-led teams. It finds growth opportunities, discovers qualified leads, and prepares personalized outbound across email and LinkedIn.",
+  "category": "go-to-market software",
+  "audience": ["founders", "founder-led teams", "lean GTM teams"],
+  "capabilities": [
+    "GTM strategy generation",
+    "lead discovery",
+    "lead research and qualification",
+    "email outbound preparation",
+    "LinkedIn outbound preparation",
+    "sender management",
+    "reply management"
+  ],
+  "human_approval": "Users review strategies and outbound before launch.",
+  "location": "San Francisco, California",
+  "contact": "kush@puffle.ai",
+  "last_verified": "2026-07-17"
+}

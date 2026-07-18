@@ -1,0 +1,21 @@
+name: Weekly discovery audit
+
+on:
+  schedule:
+    - cron: "23 16 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check public SEO and GEO surfaces
+        run: node scripts/check-discovery.mjs

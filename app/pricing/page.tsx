@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
+
 import Footer from "../Footer";
 import Header from "../Header";
+import JsonLd from "../JsonLd";
+import { APP_URL, CONTACT_EMAIL, SITE_URL } from "../site";
+
+const title = "Pricing";
+const description =
+  "Start Puffle free with 200 fresh leads. Paid plans begin at $100 per month for an AI GTM operator, lead discovery, and outbound preparation.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: "/pricing" },
+};
 
 type PricingPlan = {
   name: string;
@@ -12,6 +26,7 @@ type PricingPlan = {
   buttonClassName: string;
   checkClassName?: string;
   cta: string;
+  href: string;
   featuresLabel: string;
   features: string[];
 };
@@ -20,99 +35,97 @@ const plans: PricingPlan[] = [
   {
     name: "Free",
     price: "$0",
-    note: "5,000 credits, one-time",
+    note: "200 fresh leads, one-time",
     buttonClassName: "btn btn-outline pricing-btn",
-    cta: "Book a Demo",
+    cta: "Start free",
+    href: APP_URL,
     featuresLabel: "Includes",
     features: [
-      "Try out the platform",
-      "All 7 data sources",
-      "Lead search and enrichment",
-      "AI message generation",
+      "AI GTM strategies",
+      "Lead discovery and qualification",
+      "Personalized outbound preparation",
+      "No credit card required",
     ],
   },
   {
     name: "Starter",
-    price: "$179",
+    price: "$100",
     period: "/mo",
-    note: "18,000 credits/month",
+    note: "1,000 fresh leads/month",
     buttonClassName: "btn btn-outline pricing-btn",
-    cta: "Book a Demo",
+    cta: "Choose Starter",
+    href: APP_URL,
     featuresLabel: "Includes",
     features: [
-      "For founders trying intent-based GTM",
-      "All 7 data sources",
-      "3-day free trial",
-      "Deep research + signal scans",
+      "Everything in Free",
+      "Recurring monthly lead volume",
+      "Email and LinkedIn preparation",
+      "Sender and reply workflows",
     ],
   },
   {
     name: "Pro",
-    price: "$499",
+    price: "$250",
     period: "/mo",
-    note: "60,000 credits/month",
+    note: "5,000 fresh leads/month",
     badge: "Most Popular",
     cardClassName: "pricing-card-pro",
     tierClassName: "pricing-tier-pro",
     buttonClassName: "btn btn-primary pricing-btn",
     checkClassName: "pricing-check-pro",
-    cta: "Book a Demo",
+    cta: "Choose Pro",
+    href: APP_URL,
     featuresLabel: "Includes",
     features: [
-      "For sales teams running intent-based GTM",
-      "20% better $/credit than Starter",
-      "All 7 data sources",
-      "3-day free trial",
+      "Everything in Starter",
+      "5x Starter lead volume",
+      "Multi-channel outbound workflows",
+      "For higher-volume GTM motion",
     ],
   },
   {
-    name: "Enterprise",
-    price: "$2,499",
-    period: "/mo",
-    note: "400,000 credits/month",
+    name: "Custom",
+    price: "Let's talk",
+    note: "Volume and workflow tailored to your team",
     cardClassName: "pricing-card-enterprise",
     buttonClassName: "btn btn-outline-muted pricing-btn",
     cta: "Contact Sales",
+    href: `mailto:${CONTACT_EMAIL}`,
     featuresLabel: "Includes",
     features: [
-      "For established sales orgs",
-      "37% better $/credit than Starter",
-      "Manual rescans + white-glove custom types",
-      "Priority support",
+      "Custom lead volume",
+      "Team-specific GTM workflows",
+      "Implementation support",
+      "Direct support",
     ],
   },
 ] as const satisfies PricingPlan[];
 
-const coinCosts = [
-  { action: "Find person", cost: "1" },
-  { action: "Import lead", cost: "1" },
-  { action: "Work email lookup", cost: "2" },
-  { action: "Mobile phone lookup", cost: "8" },
-  { action: "LinkedIn profile", cost: "1" },
-  { action: "LinkedIn posts", cost: "1" },
-  { action: "Company news", cost: "4" },
-  { action: "Person news", cost: "4" },
-  { action: "Hiring status", cost: "1" },
-  { action: "Website enrichment", cost: "1" },
-  { action: "Site crawl enrichment", cost: "4" },
-  { action: "Custom AI enrichment", cost: "1" },
-  { action: "Custom web enrichment", cost: "1" },
-  { action: "AI message generation", cost: "2" },
-  { action: "Agent search", cost: "10" },
-  { action: "Search continuation", cost: "5" },
-  { action: "Signals subscription", cost: "1" },
-  { action: "News signal keyword", cost: "100" },
-] as const;
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Puffle",
+  description,
+  url: `${SITE_URL}/pricing`,
+  offers: plans.slice(0, 3).map((plan) => ({
+    "@type": "Offer",
+    name: plan.name,
+    price: plan.price.replace("$", ""),
+    priceCurrency: "USD",
+    url: `${SITE_URL}/pricing`,
+  })),
+};
 
 export default function Pricing() {
   return (
     <>
+      <JsonLd data={pricingSchema} />
       <Header />
       <main className="pricing-page">
         <div className="pricing-container">
           <h1 className="pricing-title">Pricing</h1>
           <p className="pricing-subtitle">
-            Start with 5,000 credits. Upgrade when you need monthly volume.
+            Start free. Upgrade when you need recurring lead volume.
           </p>
 
           <div className="pricing-cards">
@@ -128,7 +141,7 @@ export default function Pricing() {
                   <p className="pricing-note">{plan.note}</p>
                 </div>
 
-                <a href="https://zcal.co/i/BT5kddcb" target="_blank" rel="noopener noreferrer" className={plan.buttonClassName}>
+                <a href={plan.href} className={plan.buttonClassName}>
                   {plan.cta}
                 </a>
 
@@ -147,25 +160,10 @@ export default function Pricing() {
             ))}
           </div>
 
-          <div className="credits-section">
-            <h2 className="credits-title">What credits get you</h2>
-            <p className="credits-subtitle">Every action has a transparent credit cost</p>
-
-            <div className="credits-grid">
-              {coinCosts.map((item) => (
-                <div key={item.action} className="credit-item">
-                  <span className="credit-action">{item.action}</span>
-                  <span
-                    className="credit-cost"
-                    aria-label={`${item.cost} ${item.cost === "1" ? "credit" : "credits"}`}
-                  >
-                    <span>{item.cost}</span>
-                    <img className="credit-coin" src="/coin.png" alt="" aria-hidden="true" />
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="pricing-footnote">
+            Fresh leads are newly discovered and qualified people attached to a
+            Puffle strategy. Contact us for custom volume or workflow needs.
+          </p>
         </div>
 
         <Footer />
