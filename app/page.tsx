@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 
 import Header from "./Header";
 import HeroLeadForm from "./HeroLeadForm";
 import JsonLd from "./JsonLd";
-import { SITE_DESCRIPTION, SITE_URL, WAITLIST_URL } from "./site";
+import { SITE_DESCRIPTION, SITE_URL } from "./site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -52,9 +51,6 @@ export default function Home() {
             </p>
             <p className="sauna-home-prompt">See what it finds for your company</p>
             <HeroLeadForm />
-            <Link className="sauna-home-waitlist" href={WAITLIST_URL}>
-              Join the waitlist
-            </Link>
           </div>
         </section>
       </main>
