@@ -444,7 +444,7 @@ export default function HeroLeadForm() {
           id="company-url"
           name="companyUrl"
           type="text"
-          placeholder="www.your-company.com"
+          placeholder="your-company.com"
           title="Use a company domain or URL"
           autoComplete="url"
           autoCapitalize="none"
