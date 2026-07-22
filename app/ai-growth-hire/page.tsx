@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import MarketingPage, {
-  CardGrid,
-  MarketingSection,
-  StepList,
-} from "../MarketingPage";
+import Footer from "../Footer";
+import Header from "../Header";
+import JsonLd from "../JsonLd";
+import { SITE_NAME, SITE_URL, WAITLIST_URL } from "../site";
 
 const title = "Puffle, Your AI Growth Employee";
 const description =
-  "Give Puffle your company and a goal. Get the next move, the right people, and a campaign ready to go.";
+  "Give Puffle a growth goal. It finds the opportunity, creates the work, and keeps the next move moving across research, LinkedIn, email, and content.";
 
 export const metadata: Metadata = {
   title,
@@ -17,156 +16,224 @@ export const metadata: Metadata = {
   alternates: { canonical: "/ai-growth-hire" },
 };
 
-const workflow = [
-  {
-    title: "Learn the company",
-    description:
-      "Puffle learns what you sell, who should care, what has worked, and the growth goal you are trying to reach.",
-  },
-  {
-    title: "Decide what matters next",
-    description:
-      "It turns an open-ended goal into focused growth plays and explains why each one is worth pursuing.",
-  },
-  {
-    title: "Do the research",
-    description:
-      "It investigates markets, companies, people, hiring activity, and other signals instead of handing the work back to you.",
-  },
-  {
-    title: "Turn the work into campaigns",
-    description:
-      "It builds qualified audiences and prepares personalized email and LinkedIn outbound tied to the strategy.",
-  },
-  {
-    title: "Stop at the real boundary",
-    description:
-      "Puffle keeps the work moving, but you review the strategy and approve outbound before anything launches.",
-  },
-] as const;
-
 const capabilities = [
   {
-    title: "Growth judgment",
+    number: "01",
+    title: "Find the opening",
     description:
-      "Choose the next useful growth play from the company context and current goal.",
+      "Read your company context, map the market, and surface the customer, signal, or moment worth acting on.",
+    outputs: ["Market research", "ICP refinement", "Hiring and company signals"],
   },
   {
-    title: "Market research",
+    number: "02",
+    title: "Build the audience",
     description:
-      "Find non-obvious audiences and signals across companies, people, roles, and markets.",
+      "Turn a growth play into a researched list of accounts and the specific people who should hear from you.",
+    outputs: ["Target accounts", "Decision makers", "Why each one fits"],
   },
   {
-    title: "Lead discovery",
+    number: "03",
+    title: "Write the email",
     description:
-      "Build and qualify a real audience instead of stopping at a strategy document.",
+      "Create sequences that start from the buyer, the trigger, and a point of view—not a generic template.",
+    outputs: ["Personalized emails", "Sequences", "Follow-ups"],
   },
   {
-    title: "Campaign preparation",
+    number: "04",
+    title: "Work LinkedIn",
     description:
-      "Turn the research into personalized email and LinkedIn outbound for approval.",
+      "Research people, prepare connection notes and DMs, and keep a focused LinkedIn motion tied to the same play.",
+    outputs: ["Profile research", "Connection notes", "LinkedIn messages"],
   },
   {
-    title: "Sender operations",
+    number: "05",
+    title: "Make the content",
     description:
-      "Keep email, LinkedIn, domains, and the campaign context in one workflow.",
+      "Turn the same market insight into founder posts and sharp angles that make the outbound feel earned.",
+    outputs: ["Founder posts", "Content angles", "Proof points"],
   },
   {
-    title: "Reply follow-through",
+    number: "06",
+    title: "Keep the loop alive",
     description:
-      "Bring replies and next actions together so the growth loop does not end at send.",
+      "Bring campaign context, replies, and learnings together so the next experiment starts from what happened.",
+    outputs: ["Campaign review", "Replies", "Next experiments"],
   },
 ] as const;
 
-const faqs = [
+const exampleOutputs = [
   {
-    question: "What is an AI growth employee?",
-    answer:
-      "An AI growth employee is an AI employee responsible for moving a company's growth goal forward. It combines judgment and execution across strategy, research, lead discovery, qualification, and campaign preparation.",
+    label: "Research",
+    title: "48 companies with a real reason to care",
+    detail: "Signals, buyer context, and a clear explanation of fit.",
   },
   {
-    question: "Is an AI growth employee the same as a growth agent?",
-    answer:
-      "A growth agent describes the technology. AI growth employee describes the role it plays: a persistent operator across strategy, research, leads, and campaigns.",
+    label: "Outbound",
+    title: "A ready-to-review email + LinkedIn motion",
+    detail: "Personalized first touches and the follow-ups that make the play coherent.",
   },
   {
-    question: "Does Puffle replace founder judgment?",
-    answer:
-      "No. The founder sets direction and approves important boundaries such as launching outbound. Puffle handles the research and execution between those decisions.",
-  },
-  {
-    question: "What does Puffle do after I add my company?",
-    answer:
-      "Puffle learns what you sell, who should care, and the growth goal you are trying to reach. It then recommends the next growth work, researches the relevant market and people, qualifies an audience, and prepares an outbound campaign for review.",
-  },
-  {
-    question: "Can Puffle run email and LinkedIn outbound?",
-    answer:
-      "Puffle prepares personalized email and LinkedIn outbound from its research. You review the strategy and approve outbound before anything launches.",
-  },
-  {
-    question: "Who is Puffle for, and who is it not for?",
-    answer:
-      "Puffle is for founders and lean GTM teams that need a growth generalist but do not want to assemble a fragmented research, data, and outbound stack. It is not for teams looking only for a self-service enrichment table or a fully autonomous system that sends without review.",
+    label: "Content",
+    title: "Founder posts that reinforce the same point of view",
+    detail: "Useful ideas to publish, not a separate content calendar to manage.",
   },
 ] as const;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: title,
+  description,
+  url: `${SITE_URL}/ai-growth-hire`,
+  isPartOf: {
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+};
 
 export default function AiGrowthHirePage() {
   return (
-    <MarketingPage
-      eyebrow="Puffle"
-      title="Your AI growth employee."
-      description={description}
-      canonicalPath="/ai-growth-hire"
-      faqs={faqs}
-      heroClassName="ai-growth-hero"
-      showSecondaryCta={false}
-    >
-      <MarketingSection
-        title="What Puffle does next."
-        intro="Your company and goal become a focused plan, the right audience, and outbound ready for approval."
-      >
-        <StepList items={workflow} />
-      </MarketingSection>
-      <MarketingSection
-        title="Puffle or a Clay outbound stack?"
-        intro="Choose Puffle when you want a persistent operator to carry the GTM problem forward. Choose Clay when you want to build and configure the system yourself."
-      >
-        <div className="content-table-wrap">
-          <table className="content-comparison-table">
-            <thead>
-              <tr>
-                <th scope="col">Question</th>
-                <th scope="col">Puffle</th>
-                <th scope="col">Clay</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Starting point</th>
-                <td>A company and a growth goal</td>
-                <td>A data or workflow problem</td>
-              </tr>
-              <tr>
-                <th scope="row">Default work</th>
-                <td>Decides, researches, qualifies, and prepares outbound</td>
-                <td>Lets an operator configure enrichment and GTM workflows</td>
-              </tr>
-              <tr>
-                <th scope="row">Best fit</th>
-                <td>Founder-led and lean GTM teams</td>
-                <td>Teams building their own custom systems</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="content-source-note">
-          <Link href="/compare/puffle-vs-clay">Read the full Puffle vs. Clay comparison.</Link>
-        </p>
-      </MarketingSection>
-      <MarketingSection title="What your AI growth employee owns">
-        <CardGrid items={capabilities} />
-      </MarketingSection>
-    </MarketingPage>
+    <>
+      <JsonLd data={structuredData} />
+      <Header />
+      <main className="growth-hire-page">
+        <section className="growth-hire-hero">
+          <div className="growth-hire-hero-inner">
+            <div className="growth-hire-copy">
+              <p className="growth-hire-eyebrow">Puffle / your AI growth hire</p>
+              <h1>One growth goal. Everything to run it.</h1>
+              <p className="growth-hire-lede">
+                Puffle turns a goal into the research, people, emails, LinkedIn
+                messages, and posts that move it forward.
+              </p>
+              <div className="growth-hire-actions">
+                <Link className="growth-hire-primary" href={WAITLIST_URL}>
+                  See Puffle in action
+                </Link>
+                <Link className="growth-hire-secondary" href="#capabilities">
+                  Explore the work <span aria-hidden="true">↓</span>
+                </Link>
+              </div>
+              <p className="growth-hire-channel-line">
+                Research <span>•</span> Email <span>•</span> LinkedIn <span>•</span>{" "}
+                Posts <span>•</span> Campaigns <span>•</span> Replies
+              </p>
+            </div>
+
+            <div className="growth-hire-workspace" aria-label="Example Puffle growth workspace">
+              <div className="growth-hire-workspace-bar">
+                <span className="growth-hire-workspace-brand">
+                  <i aria-hidden="true" /> Puffle
+                </span>
+                <span className="growth-hire-status"><b /> Growth run active</span>
+              </div>
+              <div className="growth-hire-goal-card">
+                <p>THIS WEEK&apos;S GOAL</p>
+                <h2>Start conversations with the right design partners.</h2>
+                <span>Audience: founders building B2B developer tools</span>
+              </div>
+              <div className="growth-hire-workspace-grid">
+                <div className="growth-hire-queue">
+                  <div className="growth-hire-panel-heading">
+                    <span>Growth queue</span>
+                    <span>4 ready</span>
+                  </div>
+                  <ul>
+                    <li className="is-done"><b>✓</b> Find the accounts with an active trigger</li>
+                    <li className="is-done"><b>✓</b> Research founders and their current point of view</li>
+                    <li><b>3</b> Write the email sequence</li>
+                    <li><b>4</b> Prepare LinkedIn notes and founder posts</li>
+                  </ul>
+                </div>
+                <div className="growth-hire-output-panel">
+                  <div className="growth-hire-panel-heading">
+                    <span>Ready for review</span>
+                    <span className="growth-hire-spark">✦</span>
+                  </div>
+                  <div className="growth-hire-output-card growth-hire-output-card-email">
+                    <p>Email sequence</p>
+                    <strong>3 personal first touches</strong>
+                    <span>Drafted from company signals</span>
+                  </div>
+                  <div className="growth-hire-output-card growth-hire-output-card-linkedin">
+                    <p>LinkedIn</p>
+                    <strong>12 notes + 2 founder posts</strong>
+                    <span>Same audience, same point of view</span>
+                  </div>
+                </div>
+              </div>
+              <div className="growth-hire-workspace-footer">
+                <span>Next: review the play, then launch what feels right.</span>
+                <b>Founder stays in control</b>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="growth-hire-intro" id="capabilities">
+          <div>
+            <p className="growth-hire-eyebrow">What Puffle actually does</p>
+            <h2>A growth function that produces work.</h2>
+          </div>
+          <p>
+            Give Puffle context and a direction. It handles the connective work
+            between an idea and a real growth motion—then puts the output in
+            front of you to review.
+          </p>
+        </section>
+
+        <section className="growth-hire-capability-grid" aria-label="Puffle capabilities">
+          {capabilities.map((capability) => (
+            <article className="growth-hire-capability" key={capability.number}>
+              <span className="growth-hire-capability-number">{capability.number}</span>
+              <h3>{capability.title}</h3>
+              <p>{capability.description}</p>
+              <ul>
+                {capability.outputs.map((output) => (
+                  <li key={output}>{output}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </section>
+
+        <section className="growth-hire-run-section">
+          <div className="growth-hire-run-heading">
+            <p className="growth-hire-eyebrow">What a run looks like</p>
+            <h2>Not a dashboard full of empty tabs.</h2>
+            <p>
+              Puffle works backwards from the outcome. Every channel is part of
+              the same play, so your research, content, and outreach compound.
+            </p>
+          </div>
+          <div className="growth-hire-output-list">
+            {exampleOutputs.map((output, index) => (
+              <article key={output.label}>
+                <span>0{index + 1}</span>
+                <div>
+                  <p>{output.label}</p>
+                  <h3>{output.title}</h3>
+                  <small>{output.detail}</small>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="growth-hire-boundary">
+          <p className="growth-hire-eyebrow">The operating boundary</p>
+          <h2>Puffle does the legwork. You make the calls.</h2>
+          <p>
+            Set the direction, shape the strategy, and approve what launches.
+            Puffle carries the research and execution in between.
+          </p>
+          <Link className="growth-hire-primary" href={WAITLIST_URL}>
+            See Puffle in action
+          </Link>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }
