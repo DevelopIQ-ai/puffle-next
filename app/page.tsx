@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-
 import Footer from "./Footer";
 import Header from "./Header";
-import HeroLeadForm from "./HeroLeadForm";
 import JsonLd from "./JsonLd";
+import PuffleLanding from "./PuffleLanding";
 import { SITE_DESCRIPTION, SITE_URL } from "./site";
 
 export const metadata: Metadata = {
@@ -35,25 +33,7 @@ export default function Home() {
     <>
       <JsonLd data={productSchema} />
       <Header />
-      <main className="home-page">
-        <section className="sauna-home-hero">
-          <div className="sauna-home-copy">
-            <Image
-              className="sauna-home-logo"
-              src="/puffle-logo.png"
-              alt=""
-              width={72}
-              height={72}
-              priority
-            />
-            <h1>Your AI growth employee.</h1>
-            <p className="sauna-home-dek">
-              Drop in your company. Puffle will show you what it can do.
-            </p>
-            <HeroLeadForm />
-          </div>
-        </section>
-      </main>
+      <PuffleLanding />
       <Footer />
     </>
   );

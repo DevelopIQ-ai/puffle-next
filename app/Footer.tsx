@@ -9,11 +9,10 @@ const FOOTER_NAVIGATION = [
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="container footer-bar">
-        <span className="footer-logo">Puffle</span>
-        <span className="footer-copy">&copy; 2026 DevelopIQ Inc.</span>
-        <div className="footer-links">
+    <footer className="puffle-footer">
+      <div className="puffle-footer-inner">
+        <div className="puffle-footer-brand"><span className="footer-logo">Puffle</span><p>Growth work that runs itself.</p></div>
+        <div className="puffle-footer-links">
           {FOOTER_NAVIGATION.map((item) => (
             <Link href={item.href} key={item.href}>
               {item.label}
@@ -25,6 +24,7 @@ export default function Footer() {
           <Link href={legalRoutes.privacy}>Privacy Policy</Link>
           <Link href={legalRoutes.terms}>Terms of Service</Link>
         </div>
+        <span className="footer-copy">&copy; 2026 DevelopIQ Inc.</span>
       </div>
     </footer>
   );

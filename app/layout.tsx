@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Instrument_Serif } from "next/font/google";
+import { DM_Sans, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 import "./reference-theme.css";
+import "./puffle-landing.css";
 import JsonLd from "./JsonLd";
 import {
   CONTACT_EMAIL,
@@ -19,6 +20,12 @@ const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
   weight: "400",
   style: ["normal", "italic"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-puffle-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -94,7 +101,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={instrumentSerif.variable}>
+      <body className={`${instrumentSerif.variable} ${dmSans.variable}`}>
         <JsonLd data={organizationSchema} />
         {children}
         <Analytics />
