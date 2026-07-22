@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
+import "./reference-theme.css";
 import JsonLd from "./JsonLd";
 import {
   CONTACT_EMAIL,
@@ -23,7 +24,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Puffle | The AI Growth Hire",
+    default: "Puffle | The AI Growth Employee",
     template: "%s | Puffle",
   },
   description: SITE_DESCRIPTION,
@@ -36,12 +37,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: "Puffle | The AI Growth Hire",
+    title: "Puffle | The AI Growth Employee",
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Puffle | The AI Growth Hire",
+    title: "Puffle | The AI Growth Employee",
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/puffle-logo.svg",
+    icon: "/puffle-logo.png",
   },
 };
 
@@ -66,13 +67,12 @@ const organizationSchema = {
   "@id": `${SITE_URL}/#organization`,
   name: SITE_NAME,
   alternateName: [
-    "Puffle AI Growth Hire",
     "Puffle AI Growth Employee",
     "Puffle Growth Agent",
   ],
   legalName: LEGAL_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/puffle-logo.svg`,
+  logo: `${SITE_URL}/puffle-logo.png`,
   email: CONTACT_EMAIL,
   description: SITE_DESCRIPTION,
   foundingLocation: {

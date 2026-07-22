@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import MarketingPage, {
   CardGrid,
@@ -6,9 +7,9 @@ import MarketingPage, {
   StepList,
 } from "../MarketingPage";
 
-const title = "AI Growth Hire for Founder-Led Teams";
+const title = "Puffle, Your AI Growth Employee";
 const description =
-  "Puffle is the AI growth hire: an AI employee that learns your company and growth goal, decides what work matters next, and executes it.";
+  "Give Puffle your company and a goal. Get the next move, the right people, and a campaign ready to go.";
 
 export const metadata: Metadata = {
   title,
@@ -79,14 +80,14 @@ const capabilities = [
 
 const faqs = [
   {
-    question: "What is an AI growth hire?",
+    question: "What is an AI growth employee?",
     answer:
-      "An AI growth hire is an AI employee responsible for moving a company's growth goal forward. It combines judgment and execution across strategy, research, lead discovery, qualification, and campaign preparation.",
+      "An AI growth employee is an AI employee responsible for moving a company's growth goal forward. It combines judgment and execution across strategy, research, lead discovery, qualification, and campaign preparation.",
   },
   {
-    question: "Is an AI growth hire the same as a growth agent?",
+    question: "Is an AI growth employee the same as a growth agent?",
     answer:
-      "A growth agent describes the technology. AI growth hire describes the role it plays: a persistent operator across strategy, research, leads, and campaigns.",
+      "A growth agent describes the technology. AI growth employee describes the role it plays: a persistent operator across strategy, research, leads, and campaigns.",
   },
   {
     question: "Does Puffle replace founder judgment?",
@@ -94,28 +95,76 @@ const faqs = [
       "No. The founder sets direction and approves important boundaries such as launching outbound. Puffle handles the research and execution between those decisions.",
   },
   {
-    question: "Who should hire Puffle?",
+    question: "What does Puffle do after I add my company?",
     answer:
-      "Puffle is for founders and lean teams that need a growth generalist but do not want to assemble a fragmented research, data, and outbound stack.",
+      "Puffle learns what you sell, who should care, and the growth goal you are trying to reach. It then recommends the next growth work, researches the relevant market and people, qualifies an audience, and prepares an outbound campaign for review.",
+  },
+  {
+    question: "Can Puffle run email and LinkedIn outbound?",
+    answer:
+      "Puffle prepares personalized email and LinkedIn outbound from its research. You review the strategy and approve outbound before anything launches.",
+  },
+  {
+    question: "Who is Puffle for, and who is it not for?",
+    answer:
+      "Puffle is for founders and lean GTM teams that need a growth generalist but do not want to assemble a fragmented research, data, and outbound stack. It is not for teams looking only for a self-service enrichment table or a fully autonomous system that sends without review.",
   },
 ] as const;
 
 export default function AiGrowthHirePage() {
   return (
     <MarketingPage
-      eyebrow="AI growth hire"
-      title="Meet your AI growth hire"
+      eyebrow="Puffle"
+      title="Your AI growth employee."
       description={description}
       canonicalPath="/ai-growth-hire"
       faqs={faqs}
+      heroClassName="ai-growth-hero"
+      showSecondaryCta={false}
     >
       <MarketingSection
-        title="Give it a goal. Get back completed growth work."
-        intro="Puffle behaves like a growth generalist, not a collection of disconnected AI features."
+        title="What Puffle does next."
+        intro="Your company and goal become a focused plan, the right audience, and outbound ready for approval."
       >
         <StepList items={workflow} />
       </MarketingSection>
-      <MarketingSection title="What your AI growth hire owns">
+      <MarketingSection
+        title="Puffle or a Clay outbound stack?"
+        intro="Choose Puffle when you want a persistent operator to carry the GTM problem forward. Choose Clay when you want to build and configure the system yourself."
+      >
+        <div className="content-table-wrap">
+          <table className="content-comparison-table">
+            <thead>
+              <tr>
+                <th scope="col">Question</th>
+                <th scope="col">Puffle</th>
+                <th scope="col">Clay</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Starting point</th>
+                <td>A company and a growth goal</td>
+                <td>A data or workflow problem</td>
+              </tr>
+              <tr>
+                <th scope="row">Default work</th>
+                <td>Decides, researches, qualifies, and prepares outbound</td>
+                <td>Lets an operator configure enrichment and GTM workflows</td>
+              </tr>
+              <tr>
+                <th scope="row">Best fit</th>
+                <td>Founder-led and lean GTM teams</td>
+                <td>Teams building their own custom systems</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="content-source-note">
+          <Link href="/compare/puffle-vs-clay">Read the full Puffle vs. Clay comparison.</Link>
+        </p>
+      </MarketingSection>
+      <MarketingSection title="What your AI growth employee owns">
         <CardGrid items={capabilities} />
       </MarketingSection>
     </MarketingPage>

@@ -6,9 +6,9 @@ import MarketingPage, {
   StepList,
 } from "../MarketingPage";
 
-const title = "AI GTM Agent: Your AI Growth Hire";
+const title = "AI GTM Agent: Your AI Growth Employee";
 const description =
-  "Puffle is an AI growth hire powered by a GTM agent. It decides what growth work matters, discovers qualified leads, and prepares personalized outbound.";
+  "Puffle is an AI growth employee powered by a GTM agent. It decides what growth work matters, discovers qualified leads, and prepares personalized outbound.";
 
 export const metadata: Metadata = {
   title,
@@ -70,7 +70,7 @@ const faqs = [
   {
     question: "What is an AI GTM agent?",
     answer:
-      "An AI GTM agent is the technology behind an AI growth hire. It can reason across go-to-market steps such as choosing a strategy, finding the right people, researching them, and preparing outreach.",
+      "An AI GTM agent is the technology behind an AI growth employee. It can reason across go-to-market steps such as choosing a strategy, finding the right people, researching them, and preparing outreach.",
   },
   {
     question: "Does Puffle send messages without approval?",
@@ -88,7 +88,7 @@ export default function AiGtmAgentPage() {
   return (
     <MarketingPage
       eyebrow="Growth agent"
-      title="The agent behind your AI growth hire"
+      title="The agent behind your AI growth employee"
       description={description}
       canonicalPath="/ai-gtm-agent"
       faqs={faqs}
