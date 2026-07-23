@@ -664,12 +664,12 @@ h1 {
 
 .lead-modal {
     position: relative;
-    width: min(786px, calc(100vw - 2rem));
-    min-height: min(798px, calc(100dvh - 2rem));
+    width: min(620px, calc(100vw - 2rem));
+    min-height: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 3.5rem 4rem 3rem;
+    padding: 2.5rem 3rem;
     background: #fcf8f6;
     border: 0;
     border-radius: 18px;
@@ -680,8 +680,8 @@ h1 {
 
 .lead-modal-close {
     position: absolute;
-    top: 3.25rem;
-    right: 2.5rem;
+    top: 2rem;
+    right: 1.75rem;
     width: 2rem;
     height: 2rem;
     display: inline-flex;
@@ -705,7 +705,7 @@ h1 {
 
 .lead-modal-progress {
     display: grid;
-    grid-template-columns: auto 6.1rem auto;
+    grid-template-columns: auto 4.9rem auto;
     align-items: start;
     justify-content: center;
     margin: 0 auto;
@@ -713,7 +713,7 @@ h1 {
     list-style: none;
     color: #1d1b1a;
     font-family: var(--font-sans);
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 500;
     line-height: 1.2;
 }
@@ -721,7 +721,7 @@ h1 {
 .lead-modal-step {
     display: grid;
     justify-items: center;
-    gap: 0.7rem;
+    gap: 0.55rem;
     list-style: none;
 }
 
@@ -730,22 +730,22 @@ h1 {
 }
 
 .lead-modal-step-circle {
-    width: 3.55rem;
-    height: 3.55rem;
+    width: 2.75rem;
+    height: 2.75rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 0.22rem solid #c8562d;
+    border: 0.18rem solid #c8562d;
     border-radius: 50%;
     color: #c8562d;
-    font-size: 1.35rem;
+    font-size: 1.12rem;
     font-weight: 500;
     line-height: 1;
 }
 
 .lead-modal-step-circle svg {
-    width: 1.55rem;
-    height: 1.55rem;
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .lead-modal-step-complete {
@@ -759,25 +759,25 @@ h1 {
 
 .lead-modal-progress-line {
     width: 100%;
-    height: 0.22rem;
-    margin-top: 1.67rem;
+    height: 0.18rem;
+    margin-top: 1.28rem;
     background: #c8562d;
 }
 
 .lead-modal h2 {
-    margin: 3.2rem 0 2.55rem;
+    margin: 2.4rem 0 1.8rem;
     color: #1d1b1a;
     font-family: var(--font-sans);
-    font-size: clamp(2.35rem, 6.1vw, 3rem);
+    font-size: clamp(2.2rem, 5vw, 2.55rem);
     font-weight: 500;
-    line-height: 1.48;
+    line-height: 1.22;
     letter-spacing: 0;
 }
 
 .lead-modal .hero-contact-form {
     width: 100%;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 0;
     background: transparent;
     border: 0;
@@ -791,13 +791,13 @@ h1 {
 
 .lead-modal-email-control {
     width: 100%;
-    height: 7.1rem;
+    height: 5rem;
     display: flex;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 1.4rem;
     background: #ffffff;
-    border: 0.25rem solid #7c7771;
-    border-radius: 1rem;
+    border: 0.2rem solid #7c7771;
+    border-radius: 0.8rem;
     box-shadow: none;
 }
 
@@ -809,7 +809,7 @@ h1 {
     background: transparent;
     color: #1d1b1a;
     font-family: var(--font-sans);
-    font-size: 1.9rem;
+    font-size: 1.45rem;
     font-weight: 400;
     line-height: 1;
 }
@@ -820,21 +820,21 @@ h1 {
 
 .lead-modal-submit {
     width: 100%;
-    height: 7rem;
+    height: 5rem;
     flex: 1 0 auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 0.25rem solid #a74725;
-    border-radius: 1rem;
+    border: 0.2rem solid #a74725;
+    border-radius: 0.8rem;
     background: #c9562d;
     color: #ffffff;
     font-family: var(--font-sans);
-    font-size: 1.9rem;
+    font-size: 1.45rem;
     font-weight: 500;
     line-height: 1;
     cursor: pointer;
-    box-shadow: 0 0.55rem 0 #a74725;
+    box-shadow: 0 0.4rem 0 #a74725;
     transform: none;
     transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
