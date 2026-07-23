@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Step = "company" | "contact" | "done";
 
@@ -373,11 +374,40 @@ export default function HeroLeadForm() {
   }
 
   if (step === "contact") {
-    return (
+    return createPortal(
       <div className="lead-modal-backdrop" role="presentation">
         <div className="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
-          <h2 id="lead-modal-title">We&apos;ll Send You A Report Soon</h2>
-          <p className="lead-modal-prompt">Leave Your Email Here</p>
+          <button
+            type="button"
+            className="lead-modal-close"
+            onClick={() => setStep("company")}
+            aria-label="Return to website entry"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25">
+              <path d="m5 5 14 14M19 5 5 19" />
+            </svg>
+          </button>
+
+          <ol className="lead-modal-progress" aria-label="Report request progress">
+            <li className="lead-modal-step lead-modal-step-complete">
+              <span className="lead-modal-step-circle" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m6 12 4 4 8-9" />
+                </svg>
+              </span>
+              <span>Website</span>
+            </li>
+            <li className="lead-modal-progress-line" aria-hidden="true" />
+            <li className="lead-modal-step lead-modal-step-current" aria-current="step">
+              <span className="lead-modal-step-circle">2</span>
+              <span>Email</span>
+            </li>
+          </ol>
+
+          <h2 id="lead-modal-title">
+            Where should we send the<br />
+            report?
+          </h2>
           <form className="hero-lead-form hero-contact-form" onSubmit={submitContact}>
             <label className="sr-only" htmlFor="report-email">
               Email
@@ -388,7 +418,7 @@ export default function HeroLeadForm() {
                 id="report-email"
                 name="email"
                 type="email"
-                placeholder="email"
+                placeholder="you@company.com"
                 autoComplete="email"
                 value={email}
                 onFocus={() => {
@@ -401,36 +431,20 @@ export default function HeroLeadForm() {
                 }}
                 required
               />
-              <button
-                type="submit"
-                className="lead-modal-submit"
-                disabled={isSubmitting}
-                aria-label={isSubmitting ? "Saving email" : "Send report to this email"}
-              >
-                {isSubmitting ? (
-                  <span aria-hidden="true">...</span>
-                ) : (
-                  <svg
-                    aria-hidden="true"
-                    width="17"
-                    height="17"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m13 6 6 6-6 6" />
-                  </svg>
-                )}
-              </button>
             </div>
+            <button
+              type="submit"
+              className="lead-modal-submit"
+              disabled={isSubmitting}
+              aria-label={isSubmitting ? "Getting report" : "Get report"}
+            >
+              {isSubmitting ? "Getting report..." : "Get Report"}
+            </button>
             {error ? <p className="hero-form-error">{error}</p> : null}
           </form>
         </div>
-      </div>
+      </div>,
+      document.body,
     );
   }
 
