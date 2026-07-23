@@ -6,9 +6,9 @@ import Header from "../Header";
 import JsonLd from "../JsonLd";
 import { SITE_NAME, SITE_URL, WAITLIST_URL } from "../site";
 
-const title = "Puffle, Your AI Growth Hire";
+const title = "Your AI Growth Employee";
 const description =
-  "Puffle learns your business, finds the right people, writes email and LinkedIn outreach, creates posts, and helps you get more customers.";
+  "Puffle is an AI growth agent for founder-led B2B teams. It learns your company, finds high-intent customer opportunities, and turns them into personalized outbound across email and LinkedIn.";
 
 export const metadata: Metadata = {
   title,
