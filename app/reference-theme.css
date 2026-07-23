@@ -2234,3 +2234,398 @@ body:has(.content-page) .content-bottom-cta .btn-primary {
     font-size: 0.86rem;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* AI growth hire: plain language, within the existing editorial site system  */
+/* -------------------------------------------------------------------------- */
+
+body:has(.puffle-growth-page) {
+  background: #f4f4f0;
+  color: #171717;
+}
+
+body:has(.puffle-growth-page) header {
+  height: 76px;
+  background: transparent;
+}
+
+.puffle-growth-page {
+  overflow: hidden;
+  background: #f4f4f0;
+  color: #171717;
+}
+
+.puffle-growth-hero {
+  display: flex;
+  min-height: 720px;
+  padding: 174px 24px 108px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 48% 40% at 50% 42%, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.52) 58%, transparent 100%),
+    linear-gradient(rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.32)),
+    url("/bg-landing-page.png") center center / cover no-repeat;
+  text-align: center;
+}
+
+.puffle-growth-eyebrow {
+  margin: 0;
+  color: #476ce4;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.puffle-growth-hero h1,
+.puffle-growth-section-heading h2,
+.puffle-growth-example h2,
+.puffle-growth-cta h2 {
+  color: #171717;
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.043em;
+  line-height: 0.92;
+}
+
+.puffle-growth-hero h1 {
+  max-width: 820px;
+  margin: 20px 0 0;
+  font-size: clamp(4.1rem, 6.3vw, 6.35rem);
+}
+
+.puffle-growth-lede {
+  max-width: 610px;
+  margin: 24px 0 0;
+  color: rgba(23, 23, 23, 0.72);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.puffle-growth-actions {
+  display: flex;
+  margin-top: 30px;
+  gap: 18px;
+  align-items: center;
+}
+
+.puffle-growth-primary,
+.puffle-growth-secondary {
+  display: inline-flex;
+  min-height: 46px;
+  padding: 0 19px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.puffle-growth-primary {
+  background: #171717;
+  color: #fff;
+}
+
+.puffle-growth-primary:hover {
+  background: #333;
+  color: #fff;
+}
+
+.puffle-growth-secondary {
+  color: rgba(23, 23, 23, 0.68);
+}
+
+.puffle-growth-secondary:hover {
+  color: #171717;
+}
+
+.puffle-growth-secondary span {
+  margin-left: 8px;
+  font-size: 1rem;
+}
+
+.puffle-growth-jobs,
+.puffle-growth-channels {
+  display: grid;
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto;
+  grid-template-columns: minmax(260px, 0.64fr) minmax(0, 1.36fr);
+  gap: clamp(54px, 9vw, 124px);
+  padding: 118px 36px;
+  border-top: 1px solid rgba(23, 23, 23, 0.13);
+}
+
+.puffle-growth-section-heading h2 {
+  max-width: 450px;
+  margin: 15px 0 0;
+  font-size: clamp(3rem, 4.35vw, 4.4rem);
+}
+
+.puffle-growth-jobs ol {
+  margin: 0;
+}
+
+.puffle-growth-jobs li {
+  display: grid;
+  min-height: 105px;
+  padding: 21px 0;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 17px;
+  border-top: 1px solid rgba(23, 23, 23, 0.13);
+}
+
+.puffle-growth-jobs li:last-child {
+  border-bottom: 1px solid rgba(23, 23, 23, 0.13);
+}
+
+.puffle-growth-jobs li > span {
+  color: #5274e5;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+.puffle-growth-jobs h3,
+.puffle-growth-channel-grid h3 {
+  margin: 0;
+  color: #171717;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.022em;
+  line-height: 1.3;
+}
+
+.puffle-growth-jobs p {
+  max-width: 545px;
+  margin: 5px 0 0;
+  color: rgba(23, 23, 23, 0.6);
+  font-size: 0.89rem;
+  line-height: 1.55;
+}
+
+.puffle-growth-channels {
+  grid-template-columns: minmax(260px, 0.64fr) minmax(0, 1.36fr);
+  padding-top: 108px;
+  padding-bottom: 128px;
+}
+
+.puffle-growth-channel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.puffle-growth-channel-grid article {
+  display: flex;
+  min-height: 210px;
+  padding: 22px;
+  flex-direction: column;
+  border: 1px solid rgba(23, 23, 23, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.puffle-growth-channel-grid article:nth-child(2) {
+  background: rgba(232, 240, 255, 0.64);
+}
+
+.puffle-growth-channel-grid article:nth-child(3) {
+  background: rgba(255, 251, 232, 0.72);
+}
+
+.puffle-growth-channel-grid article:nth-child(4) {
+  background: rgba(236, 247, 241, 0.68);
+}
+
+.puffle-growth-channel-grid article > p {
+  margin: 0 0 auto;
+  color: #5274e5;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.puffle-growth-channel-grid h3 {
+  margin-top: 34px;
+  font-size: 1.12rem;
+}
+
+.puffle-growth-channel-grid span {
+  margin-top: 8px;
+  color: rgba(23, 23, 23, 0.6);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.puffle-growth-example {
+  display: grid;
+  width: min(1180px, calc(100% - 64px));
+  margin: 0 auto 116px;
+  padding: clamp(42px, 6vw, 72px);
+  grid-template-columns: minmax(270px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(44px, 9vw, 120px);
+  border-radius: 18px;
+  background: #e8edff;
+}
+
+.puffle-growth-example h2 {
+  max-width: 460px;
+  margin: 16px 0 0;
+  font-size: clamp(2.9rem, 4.2vw, 4.2rem);
+}
+
+.puffle-growth-example-answer {
+  align-self: center;
+}
+
+.puffle-growth-example-answer > p {
+  margin: 0 0 13px;
+  color: rgba(23, 23, 23, 0.57);
+  font-size: 0.74rem;
+  font-weight: 650;
+}
+
+.puffle-growth-example-answer li {
+  position: relative;
+  padding: 13px 0 13px 27px;
+  border-top: 1px solid rgba(23, 23, 23, 0.13);
+  color: #25262c;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.puffle-growth-example-answer li:last-child {
+  border-bottom: 1px solid rgba(23, 23, 23, 0.13);
+}
+
+.puffle-growth-example-answer li::before {
+  position: absolute;
+  top: 14px;
+  left: 2px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid #5976db;
+  border-radius: 50%;
+  content: "";
+}
+
+.puffle-growth-cta {
+  display: flex;
+  width: min(760px, calc(100% - 64px));
+  margin: 0 auto 120px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.puffle-growth-cta h2 {
+  max-width: 690px;
+  margin: 16px 0 0;
+  font-size: clamp(3.35rem, 5vw, 5rem);
+}
+
+.puffle-growth-cta > p:not(.puffle-growth-eyebrow) {
+  margin: 19px 0 29px;
+  color: rgba(23, 23, 23, 0.62);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .puffle-growth-jobs,
+  .puffle-growth-channels,
+  .puffle-growth-example {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .puffle-growth-section-heading h2 {
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 640px) {
+  body:has(.puffle-growth-page) header {
+    height: 68px;
+  }
+
+  body:has(.puffle-growth-page) .header-container {
+    padding: 0 18px;
+  }
+
+  body:has(.puffle-growth-page) .header-contact-link {
+    display: none;
+  }
+
+  .puffle-growth-hero {
+    min-height: 640px;
+    padding: 118px 18px 88px;
+    background-position: 45% center;
+  }
+
+  .puffle-growth-hero h1 {
+    max-width: 355px;
+    font-size: clamp(3.45rem, 15vw, 4.2rem);
+  }
+
+  .puffle-growth-lede {
+    max-width: 345px;
+    font-size: 0.95rem;
+  }
+
+  .puffle-growth-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .puffle-growth-jobs,
+  .puffle-growth-channels {
+    width: calc(100% - 36px);
+    padding: 76px 2px;
+    gap: 31px;
+  }
+
+  .puffle-growth-section-heading h2 {
+    font-size: clamp(2.9rem, 13.5vw, 3.8rem);
+  }
+
+  .puffle-growth-jobs li {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .puffle-growth-channel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .puffle-growth-channel-grid article {
+    min-height: 190px;
+  }
+
+  .puffle-growth-example {
+    width: calc(100% - 36px);
+    margin-bottom: 78px;
+    padding: 34px 23px;
+    gap: 34px;
+    border-radius: 15px;
+  }
+
+  .puffle-growth-example h2 {
+    font-size: clamp(2.8rem, 13vw, 3.7rem);
+  }
+
+  .puffle-growth-cta {
+    width: calc(100% - 36px);
+    margin-bottom: 82px;
+  }
+
+  .puffle-growth-cta h2 {
+    font-size: clamp(3rem, 13.5vw, 4rem);
+  }
+}
