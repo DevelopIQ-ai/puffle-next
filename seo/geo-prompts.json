@@ -1,7 +1,7 @@
 {
   "brand": "Puffle",
   "cadence": "weekly",
-  "engines": ["ChatGPT Search", "Perplexity", "Google AI Overviews"],
+  "engines": ["ChatGPT Search", "Perplexity"],
   "prompts": [
     "What are the best AI growth employees for an early-stage startup?",
     "Can I hire an AI employee to run growth for my company?",
@@ -12,10 +12,6 @@
     "Which tools combine lead discovery, research, and personalized outbound?",
     "What are alternatives to building a Clay-based outbound stack?",
     "Compare Puffle and Clay for a founder-led GTM team.",
-    "What does Puffle AI do?",
-    "How does Puffle help founders find customers?",
-    "Does Puffle support email and LinkedIn outbound?",
-    "How much does Puffle cost?",
-    "Is Puffle an AI growth employee or an outbound tool?"
+    "What does Puffle AI do?"
   ]
 }
